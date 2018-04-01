@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+</head>
+<body>
+    
+    <script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">Accounts</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">Password & Security</a></li>
+            <li><a id="deleteCookie">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+      <br>
+      <center>
+      <ul class="collection with-header" id="Listcompany" style="width:50%">
+        <li class="collection-header"><h4>Company</h4></li>
+      </ul>
+      </center>
+      <script>
+        $(document).ready(function(){
+          
+          $("#deleteCookie").click(function(){
+             document.cookie = "";
+             //alert("ok");
+
+             window.location = 'http://localhost:3000/login'
+          })
+
+          var companyList = $('#Listcompany');
+          var baseUrl = (window.location).href; // You can also use document.URL
+		      var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		      //document.getElementById("destination").value = koopId;
+	        //alert(koopId);
+          
+          /*var now = new Date();
+          var time = now.getTime();
+          var splitCookie = document.cookie.split(",");
+          
+          if(splitCookie[1] < time){
+            document.cookie = "";
+            
+            window.location = 'http://localhost:3000/login'
+          }*/
+           
+          var cookie = document.cookie;
+          var split = cookie.split(",");
+          if(split[0] != koopId){
+            window.location = 'http://localhost:3000/login'
+          }
+
+          $.ajax({
+            url:'http://localhost:3000/user_list/' + koopId,
+            type:'GET',
+            async:false,
+            contentType:'application/json',
+            success:function(data){
+              //alert(JSON.stringify(data));
+              var i = 0;
+              //alert(data[i].company.length);
+              for(a=0; a < data[i].company.length; a++){
+                //alert(data[i].company[a]);
+                $.ajax({
+                  url:'http://localhost:3000/company_list/' + data[i].company[a],
+                  type:'GET',
+                  async: false,
+                  contentType : 'application/json',
+                  success:function(data) {  
+                      var i = 0;
+                       //alert(JSON.stringify(data));
+                      $.each(data, function(key, val){
+                        companyList.append("<li class='collection-item'><div>" + data[i].companyName + " ( id : "+ data[i]._id +" )<a href='http://localhost:3000/People?id=" + data[i]._id + "' class='secondary-content'><i class='material-icons'>send</i></a></div></li>");  
+                      i++;
+                    });
+                  },
+                  error:function(err)
+                  {
+                    alert(err);
+                  }          
+                });
+              }
+            },
+            error:function(err){
+              alert(err);
+            }
+          })
+
+          //company.append('<li> Test </li>');
+      });
+      </script>
+</body>
+</html>

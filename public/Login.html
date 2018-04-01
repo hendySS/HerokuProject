@@ -1,0 +1,162 @@
+<html>
+<title>Login</title>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #e91e63;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #e91e63;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <center>
+      <div class="section"></div>
+      <h5 class="indigo-text">Please, login into your account</h5>
+      <div class="section"></div>
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">    
+          <div class="col s12">
+            <div class='row'>
+                <img class="img-responsive" src="image/lock.png" width="75px" height="75px">
+              <div class='col s12'>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='email' name='email' id='email' required/>
+                <label for='email'>Enter your email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='password' name='password' id='password' required/>
+                <label for='password'>Enter your password</label>
+                <div class="left-align">
+                <input type="checkbox" id="test5" onclick="myFunction()"/>
+                <label for="test5"> show password</label>
+                </div>
+              </div> 
+            </div>
+            <br/>
+            <center>
+              <div class='row'>
+                <button name='btn_login' class='col s12 btn btn-large waves-effect indigo' id="Btnlogin">Login</button>
+              </div>
+            </center>
+          </div>
+        </div>
+      </div>
+      <a href="/signup">Create account</a>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+  <script>
+
+    function myFunction() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+         x.type = "text";
+      } else {
+          x.type = "password";
+      }
+    }
+      //Cookies sederhana
+        /*$.ajax(
+          {
+            url:'http://localhost:3000/login',
+            type:'POST',
+            async: false,
+            contentType : 'application/json',
+            success:function(data) {
+              alert(data);
+            }
+          });
+        */          
+      $(document).ready(function(){
+        
+        var cookie = document.cookie;
+        var split = cookie.split(",");
+        if(split[0].length != 0){
+          //alert(document.cookie);
+          window.location = "CompanyList.html?id=" + split[0];
+        }
+
+        $("#Btnlogin").click(function(){
+          var data = {};
+          data.emailLogin = $('#email').val();
+          data.passwordLogin = $('#password').val();  
+          if(data.emailLogin != "" && data.passwordLogin !=""){
+          
+          $.ajax({
+            type:'POST',
+            url:'http://localhost:3000/login',
+            //dataType : 'application/json',
+            data: data,        
+            async: false,
+            success:function(data) {
+              //alert(JSON.stringify(data));
+                  Materialize.toast('Login success !', 2000);
+									var delay = 2000;
+									var url = "CompanyList.html?id="+data._id;
+									var timeoutID = setTimeout(function() {
+									    window.location = url;
+                  }, delay);
+
+                  /*var now = new Date();
+                  var time = now.getTime();
+                  time += 7200 * 1000;*/
+                  document.cookie = data._id +","+ data.email ;  
+            },
+            error:function(err)
+            {
+              alert("Ops Kamu tidak terdaftar ( Email atau password salah )");
+              window.location.reload();
+            }
+          });
+          }
+
+          else{
+            alert("Email dan password harus diisi");
+          }
+        });
+      });   
+  </script>
+</body>
+
+</html>

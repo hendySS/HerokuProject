@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+	header, main, footer {
+		padding-left: 250px;
+	}
+
+	@media only screen and (max-width : 992px) {
+		header, main, footer {
+			padding-left: 0;
+		}
+		@font-face{
+		font-family: "Roboto";
+		src: url(Roboto-Regular.woff) format('woff');
+	}
+	body{
+		font-family:"Roboto",Verdana;
+	}
+	}
+	*{
+		box-sizing: border-box;
+	}
+	.timeline{
+		position: relative;
+		max-width: 1200px;
+		margin:0 auto;
+	}
+	.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #b8d6ff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+	}
+	.bulat{
+		padding: 10px 40px;
+		position: relative;
+		background-color: inherit;
+		width: 49%;
+	}
+	.bulat::after{
+		content: '';
+		position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+	}
+	.kiri{
+		left: 0;
+	}
+	.kanan{
+		left: 50%;
+	}
+	.kiri::before{
+		content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+	}
+	.kanan::before{
+		content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+	}
+	.kanan::after{
+		left: -16px;
+	}
+	.konten{
+		padding: 20px 30px;
+		background-color: floralwhite;
+		position: relative;
+		border-radius: 5px;
+	}
+	@media all and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+	.bulat{
+		width: 100%;
+		padding-left: 70px;
+		padding-right: 25px;
+	}
+	.bulat::before{
+		left: 60px;
+		border:medium solid white;
+		border-width: 10px 10px 10px 0;
+		border-color: transparent white transparent transparent;
+	}
+	.kiri::after , .kanan::after{
+		left: 15px;
+	}
+	.kanan{
+		left: 0%;
+	}
+	}
+</style>
+</head>
+<body>
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+		});
+	</script>
+
+	<ul id="slide-out" class="side-nav fixed red lighten-1 white-text">
+		<li>
+			<h5>ActiveCollabV2<i class="material-icons right small">search</i></h5>
+		</li>
+		<li>
+			<div class="divider red accent-1"></div>
+		</li>
+		<li>
+			<a href="#!">Projects<i class="material-icons left small">business_center</i></a>
+		</li>
+		<li>
+			<a href="MyWork.html">My Work<i class="material-icons left small">computer</i></a>
+		</li>
+		<li>
+			<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+		</li>
+		<li>
+			<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+		</li>
+		<li>
+			<a href="People.html">People<i class="material-icons left small">group</i></a>
+		</li>
+		<li>
+			<a href="#!">Invoices<i class="material-icons left small">local_atm</i></a>
+		</li>
+		<li>
+			<a href="Estimates.html">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+		</li>
+		<li><div class="divider red accent-1"></div></li>
+		<li>
+			<a href="#!">Reports<i class="material-icons left small">report</i></a>
+		</li>
+		<li>
+			<a href="#!">Trash<i class="material-icons left small">delete</i></a>
+		</li>
+		<li>
+			<a href="#!">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+		</li>
+		<li>
+			<a href="#!">Settings<i class="material-icons left small">settings</i></a>
+		</li>
+		<li><div class="divider red accent-1"></div></li>
+
+		<li style="margin-top: 55px;">
+			<img src="" class="circle left"><a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+		</li>
+	</ul>
+	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+	<header>
+	<!--Header Nya Disini Tong!-->		
+	</header>
+	<main>
+        <div class="container">
+        <!--Isi Nya Disini!-->
+        <div>
+            <span class="flow-text">Activity</span>
+            <p>Find out what's been happening on all your projects on a given day.</p>
+        </div>
+        <div>
+            <fieldset>
+                <div>
+                    <a href="#" class="right btn btn-small white black-text" style="text-transform:none;">Next Day</a>
+                    <a href="#" class="left btn btn-small white black-text" style="text-transform:none;">Previous Day</a>
+                    <p  class="center">Jan 15, 2018</p>
+                
+                    
+                </div>
+            </fieldset>
+            <fieldset disabled="disabled" style="height:1000px;margin-bottom:40px;">
+							<div class="timeline">
+									<div class="bulat kiri">
+										<div class="konten">
+											<h4>hendysantoso911</h4>
+											<p>removed the assignee from the Task <a href="">Membuat project Manajemen di Excel</a></p>
+										</div>
+									</div>
+									<div class="timeline">
+										<div class="bulat kanan">
+											<div class="konten">
+												<h4>hendysantoso911</h4>
+												<p>moved the Task <a href="">Membuat project Manajemen diExcel</a> to the tax list <u>Inbox</u></p>
+											</div>
+										</div>
+									</div>
+									<div class="timeline">
+										<div class="bulat kiri">
+											<div class="konten"> 
+												<h4>hendysantoso911</h4>
+												<p> marked the Task <a href="">Membuat project Manajemen di Excel</a> as important</p>
+											</div>
+										</div>
+									</div>
+									<div class="timeline">
+										<div class="bulat kanan">
+											<div class="konten">
+												<h4>hendysantoso911</h4>
+												<p>moved the Task <a href="">Membuat project Manajemen diExcel</a> to the tax list <u>Helloooo</u></p>
+											</div>
+										</div>
+									</div>
+							</div>
+						</fieldset>
+        </div>
+		
+	</main>
+	<footer>
+		<!--Puter Kalo Emg Make Puter!-->
+	</footer>
+</body>
+</html>

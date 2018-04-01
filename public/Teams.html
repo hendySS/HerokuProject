@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css">
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+		header, main, footer {
+			padding-left: 80px;
+			margin-left: 12%;
+		}
+
+		main{
+			padding-right: 50px;
+		}
+
+		@media only screen and (max-width : 992px) {
+			header, main, footer {
+				padding-left: 0;
+			}
+			@font-face{
+				font-family: "Roboto";
+				src: url(Roboto-Regular.woff) format('woff');
+			}
+			body{
+				font-family:"Roboto",Verdana;
+			}
+		}
+
+		.btn_small{
+			height: 26px!important;
+			line-height: 26px!important;
+			font-size: 0.8rem!important;
+		}
+
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+
+			$('select').material_select();
+		});
+		
+		$(document).ready(function(){
+			$("#editTeam").hide();
+			$("#Team").hide();
+			$("#newTeam").click(function(){
+				$("#Team").slideToggle();
+				$("#hilang").toggle();
+			});
+		});
+
+		$(document).ready(function(){
+			$("#Cancel").click(function(){
+				$("#Team").slideToggle();
+				$("#hilang").toggle();
+			});
+		});
+
+		$('.dropdown-button').dropdown('open');
+        
+
+	</script>
+
+	<ul id="slide-out" class="side-nav fixed lighten-1 white-text" style="background-color:#cfcfcf; padding:8px;">
+		<li>
+			<h5>SMKN1<i class="material-icons right small">search</i></h5>
+		</li>
+		<li>
+			<div class="divider accent-1"></div>
+		</li>
+		<li>
+			<a href="#!">Projects<i class="material-icons left small">business_center</i></a>
+		</li>
+		<li>
+			<a href="MyWork.html">My Work<i class="material-icons left small">computer</i></a>
+		</li>
+		<li>
+			<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+		</li>
+		<li>
+			<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+		</li>
+		<li>
+			<a href="">People<i class="material-icons left small">group</i></a>
+		</li>
+		<li>
+			<a href="#!">Invoices<i class="material-icons left small">local_atm</i></a>
+		</li>
+		<li>
+			<a href="#!">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+		</li>
+		<li><div class="divider accent-1"></div></li>
+		<li>
+			<a href="#!">Reports<i class="material-icons left small">report</i></a>
+		</li>
+		<li>
+			<a href="#!">Trash<i class="material-icons left small">delete</i></a>
+		</li>
+		<li>
+			<a href="#!">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+		</li>
+		<li>
+			<a href="#!">Settings<i class="material-icons left small">settings</i></a>
+		</li>
+		<li><div class="divider accent-1"></div></li>
+
+		<li>
+			<img src="" class="circle left"><a href="#!email"><span class="white-text email" id="iniUser"></span></a>
+		</li>
+	</ul>
+	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+	<header>		
+	</header>
+	<main>
+			<div class="row">
+				<div class="col s9 push-s1">
+					<button class="waves-effect waves-light btn white btn_small" style="color: black" id="backPeople"><i class="material-icons left">settings_backup_restore</i> People</button>
+				</div>
+			</div>
+			<fieldset style="background-color: #ebf5ff">
+				<form>
+					<legend style="padding:5px;"><b> Teams </b></legend>
+					<p style="font-size: 11px"> You can group people into teams - you'll then be able to select them all at once when creating a project or subscribing them to a task. </p>
+				</form>
+				</fieldset>
+				<fieldset>
+					<br>
+					<a class="waves-effect waves-light btn btn_small" id="newTeam"> New Team</a>
+					<br>
+					<br>
+					<div id="Team">
+						<fieldset style="background-color: #ebf5ff;">
+							<br>
+							<div class="input-field col s6">
+								<input id="last_name" type="text" class="validate" name="name">
+								<label for="last_name"> Name of the Team</label>
+								<br>
+								<p style="font-size: 11px;"> Choose who to add to this team : </p>
+							</div>
+							<fieldset>
+							<p style="font-size: 11px"><b> Company </b></p>
+							<div id="peoplelist">
+
+							</div>
+							</fieldset>
+								<br>
+								<button class="waves-effect waves-light btn btn_small" id="postTeam">Create team</button>
+								<button class="waves-effect waves-light btn btn_small" id="Cancel">Cancel</button>
+								<br>
+						</fieldset>
+					</div>
+					<div id="editTeam">
+						<fieldset style="background-color: #ebf5ff;">
+							<div class="input-field col s6">
+								<input id="last_name" type="text" class="validate" name="name">
+								<label for="last_name"> Name of the Team</label>
+								<br>
+								<p style="font-size: 11px;"> Choose who to add to this team : </p>
+							</div>
+							<fieldset>
+							<p style="font-size: 11px"><b> Company </b></p>
+							<div id="peoplechecked">
+
+							</div>
+							</fieldset>
+								<br>
+								<button class="waves-effect waves-light btn btn_small" id="postTeam">Create team</button>
+								<button class="waves-effect waves-light btn btn_small" id="Cancel">Cancel</button>
+								<br>
+						</fieldset>
+					</div>
+					<br>
+					<span id="hilang">	
+					<span id="teamHilang">
+					<center><img class="responsive-img" src="image/sad.png" height="200px" width="200px"></center>
+					<hr width="50%">
+					<center>
+						<br>
+						<p style="font-size: 13px;">
+							There aren't any teams yet.<br>
+							You can create different teams (eg. Designers, Developers). <br>
+							Then, next time you need to select a group, you'll be able to <br>
+							choose a team.<br>
+						</p>
+						<a href="https://activecollab.com/help/books/people/managing-users#s-managing-teams" target="_blank" style="font-size: 11px">Learn more about working with teams.</a>
+					</center>
+					<br>
+					</span>
+					<span id="menghilang">
+						<ul id="teamshow">
+							<li></li>
+						</ul>
+					</span>
+					</span>
+				</fieldset>
+				<br>
+			</div>
+		</main>
+		<footer>
+			<!--Puter Kalo Emg Make Puter!-->
+		</footer>
+		<script>
+			 
+			$(document).ready(function(){
+
+				var cookie = document.cookie;
+				var split = cookie.split(",");
+
+				$("#iniUser").append(split[1]);
+
+				var baseUrl = (window.location).href; // You can also use document.URL
+				var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+				//alert(koopId);
+
+				$("#backPeople").click(function(){
+					 window.location = "http://localhost:3000/people?id=" + koopId;
+		 		})
+
+				$.ajax({
+					url:'http://localhost:3000/getPeople/' + koopId,
+					type:'GET',
+					async: false,
+					contentType : 'application/json',
+					success:function(data) {
+					//alert(JSON.stringify(data)); 
+					var i = 0;
+					$.each(data, function(key, val){
+						$("#peoplelist").append("<p><input type='checkbox' class='get_value' id='" + i + "' name='people[]' value='" + data[i].email + "'/><label for='" + i + "'>" + data[i].email + "</label></p>");  
+						//alert(data[i].name);
+					i++;
+					}); 	
+					},
+					error:function(err)
+					{
+					alert(err);
+					}
+				});
+
+				$.ajax({
+					url:'http://localhost:3000/getTeam/' + koopId,
+					type:'GET',
+					async: false,
+					contentType : 'application/json',
+					success:function(data) {
+					//alert(JSON.stringify(data)); 
+					var i = 1;
+					$.each(data, function(key, val){
+
+						$('.dropdown-button').dropdown({
+						inDuration: 300,
+						outDuration: 225,
+						constrainWidth: false, // Does not change width of dropdown to that of the activator
+						hover: true, // Activate on hover
+						gutter: 0, // Spacing from edge
+						belowOrigin: false, // Displays dropdown below the button
+						alignment: 'left', // Displays dropdown with edge aligned to the left of button
+						stopPropagation: false // Stops event propagation
+						});
+						
+						$("#teamshow").append("<li>" + data[i].name + "<button class='dropdown-button btn-flat' style='float:right' data-activates='" + data[i]._id+ "'><i class='material-icons'>more_horiz</i></button><br>" + data[i].people + "<br><hr><br></li><ul id='" + data[i]._id + "' class='dropdown-content'><li><a id='"+ data[i]._id +"' class='deleteMe'>Delete</a></li></ul>");  
+						//alert(data[i].name);
+						
+						if(data[i].name != null){
+							$("#teamHilang").hide();
+						}
+					i++;
+					});
+					},
+					error:function(err)
+					{
+					alert(err);
+					}
+				});
+				
+				$('.deleteMe').click(function(){
+					//alert("ok");
+					value = $(this).attr('id');
+					
+					$.ajax({
+						url:'http://localhost:3000/getTeamId/' + value,
+						type:'GET',
+						async: false,
+						success:function(data) {
+							//alert(JSON.stringify(data));
+							var i = 0;
+							var jumPep = data[i].people.length;
+							var compri = data[i].company;
+							
+							$.ajax({
+								url:'http://localhost:3000/delTeam/' + value,
+								type:'delete',
+								async: false,
+								data:{
+									idTeam: value,
+									jumlah: jumPep,
+									comprimer: compri
+								},
+								success:function(data) {
+									Materialize.toast('Deleting Team', 2000);
+									var delay = 2000;
+									var delay2 = 4000
+									var timeoutID = setTimeout(function() {
+						   				Materialize.toas9t('Successs', 2000);
+										}, delay);
+						
+									var timeoutID2 = setTimeout(function() {
+						    			window.location.reload();
+										}, delay2);
+								},
+								error:function(err){
+									alert(err)
+								}
+							});
+						},
+						error:function(err){
+							alert(error);
+						}
+					})
+				});
+
+			});
+
+
+			$(document).ready(function(){
+				var baseUrl = (window.location).href; // You can also use document.URL
+				var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+				$("#postTeam").click(function(){
+					var bahasa = [];
+						$('.get_value').each(function(){
+						if($(this).is(":checked"))
+						{
+							bahasa.push($(this).val());
+							//alert(bahasa);
+						}
+					});
+					//alert(bahasa.length);
+					var _name = $("#last_name").val();
+					var _total = bahasa.length;
+					//alert(_name);
+					//alert(bahasa);
+					if(_name !="" && bahasa != "")
+					{
+					$.ajax({
+						url:"http://localhost:3000/addteam",
+						type:"POST",
+						data:{
+							name: _name,
+							people: bahasa,
+							company: koopId,
+							total: _total
+						},
+						success:function(response) {
+							Materialize.toast('Success', 2000);
+							 var delay = 2000;
+							 var timeoutID = setTimeout(function() {
+							    window.location.reload();
+								}, delay);
+						},
+						error:function(){
+							alert("error");
+						}
+					});
+					}
+
+					else{
+						alert("Data team harus terisi");
+					}
+				});
+			});
+
+		</script>
+	</body>
+	</html>

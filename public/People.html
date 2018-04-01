@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+		header, main, footer {
+			padding-left: 80px;
+			margin-left: 12%;
+		}
+
+		main{
+			padding-right: 50px;
+		}
+
+		@media only screen and (max-width : 992px) {
+			header, main, footer {
+				padding-left: 0;
+			}
+			@font-face{
+				font-family: "Roboto";
+				src: url(Roboto-Regular.woff) format('woff');
+			}
+			body{
+				font-family:"Roboto",Verdana;
+			}
+		}
+
+		.link {
+    		color:blue;
+    		text-decoration:underline;
+    		cursor:pointer;
+		}
+
+		.btn_small{
+			height: 26px!important;
+			line-height: 26px!important;
+			font-size: 0.8rem!important;
+		}
+
+		fieldset{
+			border: 0px solid;
+			margin: 0 2px;
+			padding: 0.35em 0.625em 0.75em;
+			border-bottom: 1px solid #c0c0c0;
+		}
+
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+
+			$('select').material_select();
+		});
+
+		$(document).ready(function(){
+   			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+			   $('.modal').modal();
+			   
+        	   var baseUrl = (window.location).href; // You can also use document.URL
+			   var id = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+			   //alert(id);
+   		});
+
+   	</script>
+
+   	<ul id="slide-out" class="side-nav fixed white-text" style="background-color:#cfcfcf; padding:8px;">
+   		<li>
+   			<h5>SMKN1<i class="material-icons right small">search</i></h5>
+   		</li>
+   		<li>
+   			<div class="divider accent-1"></div>
+   		</li>
+   		<li>
+   			<a href="#!">Projects<i class="material-icons left small">business_center</i></a>
+   		</li>
+   		<li>
+   			<a href="MyWork.html">My Work<i class="material-icons left small">computer</i></a>
+   		</li>
+   		<li>
+   			<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+   		</li>
+   		<li>
+   			<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+   		</li>
+   		<li id="peoplesul">
+   			<a href="">People<i class="material-icons left small">group</i></a>
+   		</li>
+   		<li id="invoices">
+   			<a href="#!">Invoices<i class="material-icons left small">local_atm</i></a>
+   		</li>
+   		<li id="estimates">
+   			<a href="#!">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+   		</li>
+   		<li><div class="divider accent-1"></div>
+   		<li id="reports">
+   			<a href="#!">Reports<i class="material-icons left small">report</i></a>
+   		</li>
+   		<li id="trashs">
+   			<a href="#!">Trash<i class="material-icons left small">delete</i></a>
+   		</li>
+   		<li id="addons">
+   			<a href="#!">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+   		</li>
+   		<li id="settings">
+   			<a href="#!">Settings<i class="material-icons left small">settings</i></a>
+   		</li>
+   		<li><div class="divider accent-1"></div>
+
+   		<li>
+   			<img src="" class="circle left"><a href="#!email"><span class="white-text email" id="iniUser"></span></a>
+   		</li>
+   	</ul>
+   	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+   	<main>
+   		<div class="r">
+   			<div class="col s12">
+   				<span class="flow-text"> People </span>
+   				<p>See everyone who is on the same projects as you, grouped by company <span style="float: right;"><span class="link" onclick="teamsgo()">Teams .</span><a class="link" onclick="archivePeople()"> Archive</a></p>
+   				<hr>
+   				<a class="waves-effect waves-light btn blue btn_small" onclick="invitePeople()"><i class="material-icons left">add</i> Invite People </a>
+   				<button class="waves-effect waves-light btn white btn_small" style="color: black" onclick="addCompany()"><i class="material-icons left">add</i> New Company</button>
+   				
+	   			<div id="peopleShow">
+
+				</div>
+   			</div>
+   		</div>
+   	</main>
+   	<footer>
+   		<!--Puter Kalo Emg Make Puter!-->
+	</footer>
+	<script>
+		$(document).ready(function(){
+			var cookie = document.cookie;
+			var split = cookie.split(",");
+
+			$("#iniUser").append(split[1]);
+			
+			var companyList = $('#Listcompany');
+        	var baseUrl = (window.location).href; // You can also use document.URL
+			var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+			//alert(koopId);
+
+          	var peopleList = $('#peopleShow');
+
+		  //company.append('<li> Test </li>');
+		 $.ajax({
+			 url:'http://localhost:3000/getPeople/' + koopId,
+			 type:'GET',
+			 async:false,
+			 success:function(data){
+				 //alert(JSON.stringify(data));
+				 $.each(data, function(key, val){
+					 //alert(data[key].email);
+
+					 if(split[1] == data[key].email){
+						 //alert(data[key].position);
+						 var posisi = data[key].position;
+
+						 switch(posisi){
+							 case "owner":
+								 break;
+
+							 case "member":
+								 $("#invoices").hide();
+								 $("#estimates").hide();
+								 $("#reports").hide();
+								 $("#settings").hide();
+								 $(".link").hide();
+								 $(".btn_small").hide();
+								 break;
+
+							 case "client":
+								 $("#peoplesul").hide(); 
+							 	 $("#invoices").hide();
+								 $("#estimates").hide();
+								 $("#reports").hide();
+								 $("#settings").hide();
+								 $("#trashs").hide();
+								 $("#addons").hide();
+								 break;
+							 
+							 default:
+								alert("error");
+						 }
+					 }
+				 })
+			 },
+			 error:function(err){
+
+			 }
+		 })
+         $.ajax({
+            url:'http://localhost:3000/people_show/' + koopId,
+            type:'GET',
+            async: false,
+            contentType : 'application/json',
+            success:function(data) {
+              //alert(JSON.stringify(data));  
+			  var i = 0;
+			  var owner = data[i]._id;
+              $.each(data, function(key, val){
+
+				$('.dropdown-button').dropdown({
+					inDuration: 300,
+					outDuration: 225,
+					constrainWidth: false, // Does not change width of dropdown to that of the activator
+					hover: true, // Activate on hover
+					gutter: 0, // Spacing from edge
+					belowOrigin: false, // Displays dropdown below the button
+					alignment: 'left', // Displays dropdown with edge aligned to the left of button
+					stopPropagation: false // Stops event propagation
+				});
+				
+				peopleList.append("<br><fieldset><div><a style='float:left' href='http://localhost:3000/detailCompanyLink?id=" + data[i]._id +"'>" + data[i].name + "</a><button class='dropdown-button btn-flat btn_small' style='float:right' data-activates='" + data[i]._id+ "'><i class='material-icons'>arrow_drop_down_circle</i></button></fieldset><ul id='" + data[i]._id + "' class='dropdown-content'><li><a id='"+ data[i]._id +"' class='showHistory'>History</a></li><li class='moveTrash'><hr><a id='"+ data[i]._id +"' class='deleteMe'>Move to trash</a></li></ul>");
+				
+				if(data[i]._id == owner){
+					$(".moveTrash").hide();	
+				}
+				//alert(data[i].name);
+				//$(".moveTrash").hide();
+				
+				$('.dropdown-button').dropdown({
+						inDuration: 300,
+						outDuration: 225,
+						constrainWidth: false, // Does not change width of dropdown to that of the activator
+						hover: true, // Activate on hover
+						gutter: 0, // Spacing from edge
+						belowOrigin: false, // Displays dropdown below the button
+						alignment: 'left', // Displays dropdown with edge aligned to the left of button
+						stopPropagation: false // Stops event propagation
+						});
+				if(data[i].people.length == 0){
+					return i++;
+				}
+
+				else{
+					var z;
+					var batas = data[i].people.length;
+					//alert(batas);
+					for(z=0; z <= batas; z++){
+		
+					var people = data[i].people[z].email;
+					var archive = data[i].people[z].archive;
+					//alert(people);
+					
+					if(archive == 'no'){
+						peopleList.append("<fieldset><span style='float:left'>" + people + "</span><span style='float:right'> As " + data[i].people[z].position + "</span></fieldset>");
+					}
+					var total = z;
+					//alert(total);
+
+					if(total + 1 == batas){
+						//alert("ok");
+						break;
+						}
+					};
+				};
+					i++;
+			  });
+
+			  /*var i = 0;
+              $.each(data, function(key, val){
+                peopleList.append("<li class='collection-item'><div>" + data[i].name + data[i].people + "<a href='http://localhost:3000/People?id=" + data[i]._id + "' class='secondary-content'></a></div></li>");  
+				i++;
+              });*/
+			
+			},
+            error:function(err)
+            {
+              alert(err);
+            }          
+		});
+		
+		$(".deleteMe").click(function(){
+			value = $(this).attr('id');
+			//axlert(value);
+			$.ajax({
+				url:'http://localhost:3000/companylist/' + value,
+				type:'GET',
+				async: false,
+				success:function(data){
+					//alert(JSON.stringify(data));
+					$.each(data, function(key, val){
+						//alert(data[key].company_primer);
+						//alert(data[key]._id);
+						
+						//Delete Team
+						for(a=0; a<data[key].people.length; a++){
+							//alert(data[key].people[a].company_primer);
+							//alert(data[key].people[a].email);
+							//alert(data[key].people[a].team.length);
+
+							for(b=0; b < data[key].people[a].team.length; b++){
+								//alert(data[key].people[a].team[b]);
+
+								$.ajax({
+									url:'http://localhost:3000/del_team_pep/' + data[key].people[a].team[b],
+									type: 'DELETE',
+									data:{
+										name: data[key].people[a].email
+									},
+									async:false,
+									success:function(data){
+										//alert("successs");
+									},
+									error:function(err){
+										alert(err);
+									}
+								})
+
+							}
+							
+							//Delete people
+							$.ajax({
+								url:'http://localhost:3000/del_people_pep/' + data[key].people[a]._id,
+								type: 'DELETE',
+								async:false,
+								data:{
+									compri: data[key].people[a].company_primer 
+								},
+								success:function(data){
+									//alert("success");
+								},
+								error:function(err){
+									alert(err);
+								}
+							})
+						}
+
+						$.ajax({
+							url:'http://localhost:3000/del_people_companysekun/' + data[key]._id ,
+							type: 'DELETE',
+							data:{
+								compri: data[key].company_primer
+							},
+							async: false,
+							success:function(data){
+								alert("success");
+								window.location.reload();
+							},
+							error:function(err){
+								alert(err);
+							}
+						})						
+					})
+
+					//alert(data[0].company_primer);
+				},
+				error:function(err){
+					alert(err);
+				}
+			})
+			//alert(value);
+			/*$.ajax({
+				url:'http://localhost:3000/getCompany/' + value,
+            	type:'GET',
+				async: true,
+				success:function(data){
+					var i = 0;
+					var _compri = data[i].company_primer;
+					var _jumlah = data[i].people.length;
+					var _people = data[i].people;
+					//alert(_people);
+					//alert(JSON.stringify(data));
+					
+					for(a=0; a < _jumlah; a++){
+						$.ajax({
+							url:'http://localhost:3000/user/' + data[i].people[a],
+							type:'GET',
+							async:false,
+							success:function(data){
+								//alert(JSON.stringify(data));
+								var i = 0;
+								var _data_team_length = data[i].team.length;
+								var _compri = data[i].company_primer;
+								var _name = data[i].email;
+								
+								$.ajax({
+									url:'http://localhost:3000/deleteTeam',
+									type:'DELETE',
+									async:false,
+									data:{
+										jumlah: _data_team_length,
+										compri: _compri,
+										name: _name
+									},
+									success:function(data){
+										alert("ok");
+									},
+									error:function(err){
+										alert(JSON.stringify(err));
+										alert("delete gagal");
+									}
+								})
+							},
+							error:function(err){
+								alert(JSON.stringify(err));
+								//alert("get gagal");
+							}
+						})
+					}
+
+					/*$.ajax({
+						url:'http://localhost:3000/companyDelete/' + value,
+						type:'DELETE',
+						async:false,
+						data:{
+							compri: _compri,
+							jumlah: _jumlah,
+							people: _people
+						},
+						success:function(data){
+							alert("success");
+						},
+						error:function(err){
+
+						}
+					})*/
+				/*},
+				error:function(err){
+					alert(err);
+				}
+			})*/
+		})
+	  });
+
+	  function addCompany(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		//alert(koopId);
+		window.location = 'NewCompany.html?id=' + koopId;
+	  }
+	  
+	  function invitePeople(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		//alert(koopId);
+		window.location = 'InvitePep.html?id=' + koopId;
+	  }
+
+	  function archivePeople(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		//alert(koopId);
+		window.location = 'Archive.html?id=' + koopId;
+	  }
+
+	  function teamsgo(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		//alert(koopId);
+		window.location = 'Teams.html?id=' + koopId;
+		return false;	
+	  }
+	</script>   
+   </body>
+   </html>
+   

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<style>
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+
+			$('select').material_select();
+		});
+	</script>
+	<div class="container"> 
+		<div class="row">
+			<br>
+			<br>
+			<br>
+			<center>
+				<img class="img-responsive" src="image/signup.png" width="150px" height="150px">
+				<form action="">
+				<table id="addEmail">	
+					<tbody>
+						<tr>
+							<div class="input-field col s12" style="width:60%; margin-left:20%">
+								<input id="email" type="email" class="validate" name="email" required>
+								<label for="email" data-error="wrong" data-success="right">Email</label>
+							</div>
+						</tr>
+						<tr>
+							<div class="input-field col s12" style="width:60%; margin-left:20%">
+								<input id="password" type="password" class="validate" name="password" required>
+								<label for="password">Password</label>
+							</div>
+							<br>
+						</tr>
+						<tr>
+							<div class="input-field col s12" style="width:60%; margin-left:20%">
+								<input id="password2" type="password" class="validate" name="password2" required>
+								<label for="password2">Re-type Password</label>
+							</div>
+							<br>
+						</tr>
+					</tbody>
+					<tr></tr>
+				</table>
+				</form>
+				<br>
+				<br>
+				<br>
+				<button class="btn waves-effect waves-light" type="submit" name="action" id="checkButton">Submit
+				<i class="material-icons right">send</i>
+				</button>
+				<a class="waves-effect waves-light btn" href="/login"><i class="material-icons right"></i>Login</a>
+			</center>
+			<script>
+				$(document).ready(function(){
+					$("#checkButton").click(function(){
+					
+						var data = {};
+						data.email = $("#email").val();
+						data.password = $("#password").val();
+						var email = data.email;
+						var password2 = $("#password2").val();
+
+						var jumlahEmail = data.email.length;
+						var jumlahPassword = data.password.length;
+						var re = '[a-zA-Z0-9]+@((hotmail)|(yahoo)|(gmail))\\.[a-z]{2,4}';
+
+						//alert(jumlahEmail);
+						
+						var maks = 12;
+						var min = 4;
+						
+						if(data.password != password2){
+							alert("Password Tidak cocok ");
+							window.location.reload();
+						}
+
+						else{
+
+						if(data.email != "" && data.password != "" && data.email.match(re)){
+							if(jumlahPassword < min){
+								alert("Password minimal 4 character");
+								window.location.reload();
+							}
+
+							else{
+
+								if(jumlahPassword >= maks){
+								alert("Password hanya dapat 4 - 12 character");
+								window.location.reload();
+								}
+
+								else{
+
+								var hasil = 0;
+
+								$.ajax({
+									url:'http://localhost:3000/checkName',
+									type:'GET',
+									async:false,
+									contentType:'application/json',
+									success:function(data){
+										//alert(JSON.stringify(data));
+										$.each(data, function(key, val){
+											//alert(data[key].email);
+											if(email == data[key].email){
+												hasil = hasil + 1;
+												//alert(hasil);
+											}
+											key++;
+										})
+									},
+									error:function(err){
+
+									}
+
+								})
+								
+								if(hasil == 0){
+								$.ajax({
+									url:"http://localhost:3000/signup",
+									type: "POST",
+									data: data,
+									success:function(response){
+										//alert("success");
+										Materialize.toast('Success', 2000);
+										var delay = 2000;
+										var url = "http://localhost:3000/login";
+										var timeoutID = setTimeout(function() {
+										    window.location = url;
+										}, delay);
+									},
+									error:function(err){
+										alert(err);
+									}
+								});
+								}
+
+								else{
+									alert("Email sudah digunakan");
+									window.location.onload();
+								}
+							}
+						}
+
+						}
+
+						else{
+							alert("Email atau password harap diisi dengan benar");
+							window.location.reload();
+						}
+
+						}
+					});
+				});
+			</script>
+		</body>
+		</html>

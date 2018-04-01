@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css">
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+		header, main, footer {
+			padding-left: 80px;
+			margin-left: 12%;
+		}
+
+		main{
+			padding-right: 50px;
+		}
+
+		@media only screen and (max-width : 992px) {
+			header, main, footer {
+				padding-left: 0;
+			}
+			@font-face{
+				font-family: "Roboto";
+				src: url(Roboto-Regular.woff) format('woff');
+			}
+			body{
+				font-family:"Roboto",Verdana;
+			}
+		}
+
+		.btn_small{
+			height: 26px!important;
+			line-height: 26px!important;
+			font-size: 0.8rem!important;
+		}
+
+	</style>
+</head>
+<body onload="myFunction()">
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+
+			$('select').material_select();
+		});
+
+		$(document).ready(function(){
+			$("#tambah").click(function(){
+				$('#addEmail tr:last').after('<tr><td><div class="input-field col s12"><input id="email" type="email" class="validate"><label for="email" data-error="wrong" data-success="right">Email</label></div><tr><td>');
+			});
+		});
+
+		$(document).ready(function(){
+			$("#OptionsRadios1").click(function(){
+				$("#ilang").slideUp(); 
+				$("#ilang2").hide();
+			});
+		});  
+
+		$(document).ready(function(){
+			$("#OptionsRadios2").click(function(){
+				$("#ilang").slideDown();
+				$("#ilang2").hide();
+			});
+		});
+
+		$(document).ready(function(){
+			$("#ilang2").hide();
+			$("#OptionsRadios3").click(function(){
+				$("#ilang").slideUp();
+				$("#ilang2").show();
+			});
+
+			$("#checkAll").click(function () {
+				$('input:checkbox[class=get_value]').not(this).prop('checked', this.checked);
+			});
+
+		});
+
+	</script>
+
+	<ul id="slide-out" class="side-nav fixed white-text" style="background-color:#cfcfcf; padding:8px;">
+		<li>
+			<h5>ActiveCollabV2<i class="material-icons right small">search</i></h5>
+		</li>
+		<li>
+			<div class="divider accent-1"></div>
+		</li>
+		<li>
+			<a href="#!">Projects<i class="material-icons left small">business_center</i></a>
+		</li>
+		<li>
+			<a href="MyWork.html">My Work<i class="material-icons left small">computer</i></a>
+		</li>
+		<li>
+			<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+		</li>
+		<li>
+			<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+		</li>
+		<li>
+			<a href="">People<i class="material-icons left small">group</i></a>
+		</li>
+		<li>
+			<a href="#!">Invoices<i class="material-icons left small">local_atm</i></a>
+		</li>
+		<li>
+			<a href="#!">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+		</li>
+		<li><div class="divider accent-1"></div></li>
+		<li>
+			<a href="#!">Reports<i class="material-icons left small">report</i></a>
+		</li>
+		<li>
+			<a href="#!">Trash<i class="material-icons left small">delete</i></a>
+		</li>
+		<li>
+			<a href="#!">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+		</li>
+		<li>
+			<a href="#!">Settings<i class="material-icons left small">settings</i></a>
+		</li>
+		<li><div class="divider accent-1"></div></li>
+
+		<li>
+			<img src="" class="circle left"><a href="#!email"><span class="white-text email" id="iniUser"></span></a>
+		</li>
+	</ul>
+	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+	<header>
+		<!--Header Nya Disini Tong!-->		
+	</header>
+	<main>
+			<div class="row">
+				<div class="col s9 push-s1">
+					<button class="waves-effect waves-light btn white btn_small" style="color: black"	id="backPeople"><i class="material-icons left">settings_backup_restore</i> People</button>
+				</div>
+			</div>
+			<fieldset style="background-color: #ebf5ff">
+				<!--<form action="http://localhost:3000/invitePeople" method="POST">-->
+					<br>
+					<legend><h6 style="font-family:segoe-ui"><b> Invite People to your Active Collab </b></h6></legend>
+					<br>
+				</fieldset>
+				<fieldset>
+					<p style="color: #4caf50; padding: 10px;"><b> Who do you want to invite? </b></p>
+					<div class="row">
+						<div class="col s8 push-s2">
+							<p> Enter Emails </p>
+							<table id="addEmail">	
+								<tbody>
+									<tr>	
+										<div class="input-field col s12">
+											<input id="email" type="email" class="validate" name="email">
+											<label for="email" data-error="wrong" data-success="right">Email</label>
+										</div>
+							
+									</tr>
+									<!--
+									<tr>
+										<div class="input-field col s12">
+											<input id="email" type="email" class="validate">
+											<label for="email" data-error="wrong" data-success="right">Email</label>
+										</div>
+									</tr>
+
+									<tr>	
+										<div class="input-field col s12">
+											<input id="email" type="email" class="validate">
+											<label for="email" data-error="wrong" data-success="right">Email</label>
+										</div>
+									</tr>
+								-->
+								</tbody>
+
+								<tr></tr>
+							</table>
+							<!--<a class="waves-effect waves-light btn" id="tambah"><i class="material-icons left">add</i> Invite even more </a>-->
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+				<p style="color: #4caf50; padding: 10px;"><b> What will be their role in the system </b></p>
+				<div class="row">
+					<div class="col s8 push-s2">
+						<p style="color: #039be5"> [57] Owner and members seat left</p> 
+
+						<br>
+						<p>
+							<input class="with-gap" name="position" type="radio" id="OptionsRadios1"  value="owner"/>
+							<label for="OptionsRadios1"> Owner </label>
+						</p>
+						<div class="col s8 push-s1">
+							<span id="Hilang">
+								<select id="owner" name="box1">
+								</select>
+							</span>
+							This person can do everything you can, including controlling this account. Usually your co-founder. Assign with caution!
+						</div>	
+						<br>	
+					</div>
+
+					<div class="col s8 push-s2">	
+						<br>
+						<p>
+							<input class="with-gap" name="position" type="radio" id="OptionsRadios2" value="member"  checked/>
+							<label for="OptionsRadios2"> Member </label>
+						</p>
+						<div class="col s10 push-s1">
+							Can only see the projects they're assigned to and add new things there.
+							<div id="ilang">
+								<br>
+								<b> Choose Company : </b>
+								<div class="input-field col s12">
+									<select id="companylist" name="box1">
+									</select>
+									<p> New company ? <a href="NewCompany.html"> Click here </a></p>
+								</div>
+								<br>
+								<br>
+								<b> Extra permissions : </b>
+								<br>
+								<p>
+									<input type="checkbox" id="cb1" />
+									<label for="cb1"> Start projects, manage people, and use reports</label>
+								</p>
+								<p>
+									<input type="checkbox" id="cb2" />
+									<label for="cb2"> Work with invoices and estimates</label>
+								</p>
+							</div>
+						</div>	
+						<br>	
+					</div>
+					<div class="col s8 push-s2">
+						<br>
+						<br>
+						<p style="color: #039be5"> Unlimited Clients </p> 
+
+						<br>
+						<p>
+							<input class="with-gap" name="position" type="radio" id="OptionsRadios3" value="client" />
+							<label for="OptionsRadios3"> Client </label>
+						</p>
+						<div class="col s8 push-s1">
+							Clients can't delegate or get assigned to tasks, but they can comment, start discussions, and upload files. You can also hide tasks, discussions, notes or files from them.
+							<br>
+							<br>
+							<span id="ilang2">
+								<b>Choose Company:</b>
+								<div class="input-field col s12">
+									<select id="companylist2" name="box2">
+									</select>
+									<p> New company ? <a href="NewCompany.html"> Click here </a></p>
+								</div>
+							</span>
+							<br>
+							<p style="font-size: 10px">
+								You want clients to create, assign and work on tasks?<br><a href="https://app.activecollab.com/168365/integrations/client-plus">Activate Client+ add-on</a>
+								<br>
+								<br>
+								Set what the users can do in your Active Collab
+								<a href="https://help.activecollab.com/books/people/user-roles.html">(learn more)</a>
+							</p>
+						</div>	
+						<br>	
+					</div>
+				</div>
+				</fieldset>
+				<fieldset>
+				<div id="Hilang2">
+					<input type="text" name="company" id="destination"></span></input>
+				</div>
+				<p style="color: #4caf50; padding: 10px;"><b> Which projects can they access? </b></p>
+				<div class="row">
+					<div class="col s8 push-s2" id="projectShow">
+						<p><b> Select Project </b>
+							<input type="checkbox" id="checkAll" />
+							<label for="checkAll"> Check all ? </label>
+						</p>
+					
+					</div>
+					<!--
+					<ul id="projectShow">
+						<li> Show Project </li>
+					</ul>-->
+				</div>
+				<br>
+				<center><button type="button" class="waves-effect waves-light btn" id="btnInvite"> Send Invitations</button></center>
+		</fieldset>
+	</div>
+</main>
+<br>
+<br>
+<footer>
+
+</footer>
+<script>
+ 	$(document).ready(function(){
+		 $("#Hilang").hide();
+		
+		 var cookie = document.cookie;
+		 var splitCookie = cookie.split(",");
+
+		 $("#iniUser").append(splitCookie[1]);
+
+		 var baseUrl = (window.location).href; // You can also use document.URL
+		 var koopId2 = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		 document.getElementById("destination").value = koopId2;
+
+		 $("#backPeople").click(function(){
+			 window.location = "http://localhost:3000/people?id=" + koopId2;
+		 })
+	 });
+
+	function myFunction(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		document.getElementById("destination").value = koopId;
+		//alert(koopId);
+		
+		$(document).ready(function(){
+			$("#Hilang").hide();
+			$("#Hilang2").hide();
+			
+			var projectList = $('#projectShow');
+			//alert(koopId);
+			$.ajax({
+				url:'http://localhost:3000/getProject/' + koopId,
+				type:'GET',
+            	async: false,
+            	contentType : 'application/json',
+            	success:function(data) {
+				//alert(JSON.stringify(data));  
+				var i = 0;
+              	$.each(data, function(key, val){
+					projectList.append("<p><input type='checkbox' class='get_value' id='" + i + "' name='project[]' value='" + data[i].name + "'/><label for='" + i + "'>" + data[i].name + "</label></p>");  
+					//alert(data[i].name);
+				i++;
+              	});
+            	},
+            	error:function(err)
+            	{
+            	  alert(err);
+            	}
+			});	
+		});
+		
+		$(document).ready(function(){
+			// untuk Company
+			//var companyLainList = $('#companylist');
+			
+			$.ajax({
+				url:'http://localhost:3000/getCompanyLain/' + koopId,
+				type:'GET',
+            	async: false,
+            	contentType : 'application/json',
+            	success:function(data) {
+				//alert(JSON.stringify(data));  
+				var a = 0;
+				var num = 0;
+              	$.each(data, function(key, val){
+					$("#owner").append("<option value=" + data[num]._id + ">" + data[num].name + "</option>");
+					$("#companylist").append("<option value="+ data[a]._id +">"+ data[a].name +"</option>");
+					//companyLainList.append("<option value='"+ data[i]._id +"'>" + data[i].name +"</option>");  
+					//alert(data[i].name);
+
+					$("#companylist2").append("<option value="+ data[a]._id +">"+ data[a].name +"</option>");
+					//companyLainList.append("<option value='"+ data[i]._id +"'>" + data[i].name +"</option>");  
+					//alert(data[i].name);
+					$('select').material_select();
+					a++;
+				  });
+            	},
+            	error:function(err)
+            	{
+            	  alert(err);
+            	}
+			});
+			
+			$("#btnInvite").click(function(){
+				var bahasa = [];
+           		$('.get_value').each(function(){
+                if($(this).is(":checked"))
+                {
+					 bahasa.push($(this).val());
+					 //alert(bahasa);
+                }
+				});
+				
+				var option = $('input[type="radio"]:checked').val();
+				var num = 1;
+
+				switch(option){
+					case 'owner':
+						var own = $('#owner').find('option:selected').val();
+						var _getId = own;
+						break;
+
+					case 'member':
+						var wado = $('#companylist').find('option:selected').val();
+						//alert(wado);
+						var _getId = wado;
+						break;
+
+					case 'client':
+						var wado2 = $('#companylist2').find('option:selected').val();
+						//alert(wado2);
+						var _getId = wado2;
+						break;
+
+					default:
+				
+				
+					alert("failed");
+				}
+				
+				var _bahasa = bahasa;
+				var _email = ($('#email').val());
+				///alert(_email);
+				var re = '[a-zA-Z0-9]+@((hotmail)|(yahoo)|(gmail))\\.[a-z]{2,4}';
+
+				if(_email != "" && _email.match(re))
+				{
+					var _koopid = koopId;
+					$.ajax({
+						url:'http://localhost:3000/getInvitePeople/' + _email,
+						type:'GET',
+						async:false,
+						contentType:'application/json',
+						success:function(data){
+							//alert(JSON.stringify(data));
+							if(JSON.stringify(data) == "[]"){
+								//alert("astaga");
+								$.ajax({
+									url:"http://localhost:3000/invitePeopleNo",
+									type:"POST",
+									data:{
+										email: _email,
+										position: option,
+										company: _getId,
+										project: _bahasa,
+										company_primer: koopId,
+										archive:"no"
+									},
+									success:function(response) {
+										//alert("successs");
+										Materialize.toast('Inviting people', 2000);
+										var delay = 2000;
+										setTimeout(function(){
+											Materialize.toast('Success', 2000);
+										}, delay)
+										var delay2 = 4000;
+										var url = "http://localhost:3000/people?id=" + koopId;
+										var timeoutID = setTimeout(function(){
+											window.location = url;}, delay2);
+									},
+									error:function(err){
+										alert(JSON.stringify(err));
+										alert("error ke 1");
+									}
+								});			
+							}
+
+							else{
+							//alert("success");
+								$.ajax({
+									url:"http://localhost:3000/invitePeople",
+									type:"POST",
+									data:{
+										email: _email,
+										position: option,
+										company: _getId,
+										project: _bahasa,
+										company_primer: koopId,
+										archive:"no"
+									},
+									success:function(response) {
+										//alert("successs");
+										Materialize.toast('Inviting people', 2000);
+										var delay = 2000;
+										setTimeout(function(){
+											Materialize.toast('Success', 2000);
+										}, delay)
+										var delay2 = 4000;
+										var url = "http://localhost:3000/people?id=" + koopId;
+										var timeoutID = setTimeout(function(){
+											window.location = url;}, delay2);
+									},
+									error:function(err){
+										alert(JSON.stringify(err));
+										alert("error ke - 2")
+									}
+								});
+							}
+						},
+						error:function(err){
+							alert(err);
+						}
+					})	
+				}
+
+				else{
+					alert("Email harap diisi dengan benar");
+				}
+			});
+		});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1198 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="materialize/css/materialize.min.css">
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<style type="text/css">
+			header, main, footer {
+				padding-left: 250px;
+			}
+
+			@media only screen and (max-width : 992px) {
+				header, main, footer {
+					padding-left: 0;
+				}
+				@font-face{
+					font-family: "Roboto";
+					src: url(Roboto-Regular.woff) format('woff');
+				}
+				body{
+					font-family:"Roboto",Verdana;
+				}
+
+				.warna{
+					color: white;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".button-collapse").sideNav({menuWidth: 220});
+
+				$('select').material_select();
+			});
+
+			$(document).ready(function(){
+	   		 // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+	   		 $('.modal').modal();
+
+	   		});
+
+			$(document).ready(function(){
+				$('.dateReminder').pickadate({
+    				selectMonths: true, // Creates a dropdown to control month
+    				selectYears: 15, // Creates a dropdown of 15 years to control year,
+    				today: 'Today',
+    				clear: 'Clear',
+    				close: 'Ok',
+    				closeOnSelect: false // Close upon selecting a date,
+    			});
+			});
+
+			$(document).ready(function(){
+				$('.dateReminder2').pickadate({
+    				selectMonths: true, // Creates a dropdown to control month
+    				selectYears: 15, // Creates a dropdown of 15 years to control year,
+    				today: 'Today',
+    				clear: 'Clear',
+    				close: 'Ok',
+    				closeOnSelect: false // Close upon selecting a date,
+    			});
+			});
+
+			$(document).ready(function(){
+				$('.datepicker').pickadate({
+	    			selectMonths: true, // Creates a dropdown to control month
+	    			selectYears: 15, // Creates a dropdown of 15 years to control year,
+	    			today: 'Today',
+	    			clear: 'Clear',
+	    			close: 'Ok',
+	    			closeOnSelect: false // Close upon selecting a date,
+	    		});
+			});
+
+			$(document).ready(function(){
+				$('.datepicker2').pickadate({
+	    			selectMonths: true, // Creates a dropdown to control month
+	    			selectYears: 15, // Creates a dropdown of 15 years to control year,
+	    			today: 'Today',
+	    			clear: 'Clear',
+	    			close: 'Ok',
+	    			closeOnSelect: false // Close upon selecting a date,
+	    		});
+			});
+
+			$(document).ready(function(){
+				$('.datepicker3').pickadate({
+	    			selectMonths: true, // Creates a dropdown to control month
+	    			selectYears: 15, // Creates a dropdown of 15 years to control year,
+	    			today: 'Today',
+	    			clear: 'Clear',
+	    			close: 'Ok',
+	    			closeOnSelect: false // Close upon selecting a date,
+	    		});
+			});
+
+			$(document).ready(function(){
+				$('.timepicker').pickatime({
+	    			default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+	    			fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+	    			twelvehour: false, // Use AM/PM or 24-hour format
+	    			donetext: 'OK', // text for done-button
+	    			cleartext: 'Clear', // text for clear-button
+	    			canceltext: 'Cancel', // Text for cancel-button
+	    			autoclose: false, // automatic close timepicker
+	    			ampmclickable: true, // make AM PM clickable
+	    			aftershow: function(){} //Function for after opening timepicker
+	    		});
+			});
+
+			$(document).ready(function(){
+				$('.timepicker2').pickatime({
+	    			default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+	    			fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+	    			twelvehour: false, // Use AM/PM or 24-hour format
+	    			donetext: 'OK', // text for done-button
+	    			cleartext: 'Clear', // text for clear-button
+	    			canceltext: 'Cancel', // Text for cancel-button
+	    			autoclose: false, // automatic close timepicker
+	    			ampmclickable: true, // make AM PM clickable
+	    			aftershow: function(){} //Function for after opening timepicker
+	    		});
+			});
+
+			$(document).ready(function(){
+				$("#IsiTask").hide();
+				$("#SubsTask").click(function(){
+					$("#IsiTask").toggle();
+				});
+			});
+
+			$(document).ready(function(){
+				$("#IsiTask2").hide();
+				$("#SubsTask2").click(function(){
+					$("#IsiTask2").toggle();
+				});
+			});
+
+			$(document).ready(function(){
+				$("#UpdatesIlang").click(function(){
+					$("#UpdatesBody").slideToggle();
+				});
+			});
+
+			$(document).ready(function(){
+				$("#UpdatesIlang").click(function(){
+				$("#my_image").css({"transform" : "rotate(90deg)" , "transition-duration" : "0.3s" /* For modern browsers(CSS3)  */});
+			});
+			});
+
+			$(document).ready(function(){
+				$("#Taskk").hide();
+				$("#ButtonTaskk").click(function(){
+					$("#Taskk").toggle();
+				});
+
+				$("#ButtonTaskk2").click(function(){
+					$("#Taskk").toggle();
+				});
+			});
+
+			$(document).ready(function(){
+				$("#Log").hide();
+				$("#ButtonLog").click(function(){
+					$("#Log").toggle();
+				});
+
+				$("#ButtonLog2").click(function(){
+					$("#Log").toggle();
+				});
+			});
+
+			$(document).ready(function(){
+				$("#ButtonActivity").click(function(){
+					$("#ActivityHilang").toggle();
+				});
+			});
+
+			$(document).ready(function(){
+				$("#HideHistory").click(function(){
+					$("#HistoryHilang").toggle();
+				});
+			});
+
+		</script>
+
+		<ul id="slide-out" class="side-nav fixed red lighten-1 white-text">
+			<li>
+				<h5>ActiveCollabV2<i class="material-icons right small">search</i></h5>
+			</li>
+			<li>
+				<div class="divider red accent-1"></div>
+			</li>
+			<li>
+				<a href="#!" style="color: white">Projects<i class="material-icons left small white-text">business_center</i></a>
+			</li>
+			<li>
+				<a href="MyWork.html">My Work<i class="material-icons left small">computer</i></a>
+			</li>
+			<li>
+				<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+			</li>
+			<li>
+				<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+			</li>
+			<li>
+				<a href="People.html">People<i class="material-icons left small">group</i></a>
+			</li>
+			<li>
+				<a href="#!">Invoices<i class="material-icons left small">local_atm</i></a>
+			</li>
+			<li>
+				<a href="#!">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+			</li>
+			<li><div class="divider red accent-1"></div></li>
+			<li>
+				<a href="#!">Reports<i class="material-icons left small">report</i></a>
+			</li>
+			<li>
+				<a href="#!">Trash<i class="material-icons left small">delete</i></a>
+			</li>
+			<li>
+				<a href="#!">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+			</li>
+			<li>
+				<a href="#!">Settings<i class="material-icons left small">settings</i></a>
+			</li>
+			<li><div class="divider red accent-1"></div></li>
+
+			<li>
+				<img src="" class="circle left"><a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+			</li>
+		</ul>
+		<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+		<header>
+			<!--Header Nya Disini Tong!-->		
+		</header>
+		<main>
+			<div class="container">
+				<div class="col s9">
+					<span class="flow-text"> My Work </span>
+					<p>Keep track of updates and all your tasks, logged time, and activity.<span style="float: right;"><a href="Setting.html"> Customize Alerts and Notifications </a></span></p>
+					<hr>
+					<br>
+					<br>
+					<fieldset>
+						<br>
+						<a class="waves-effect waves-light" id="UpdatesIlang"><img src="image/arrow_right.png" id="my_image" height="20px" width="20px"><b> Updates </b></a>
+						<br>
+						<br>
+						<fieldset id="UpdatesBody">
+							<table class="bordered">
+								<tr>
+									<td><a href=""> Project Management </a></td>
+									<td><a href="#modal1" class="waves-effect waves-light modal-trigger"> Membuat Project Manajemen di Excel </a></td>
+									<td> 1 day ago </td>
+
+									<!-- Modal Structure ke -1 -->
+									<div id="modal1" class="modal" style="width: 85%;">
+										<div class="modal-content">
+
+											<p><a href=""> Project Management </a> Task #2.Created by Iqbalafrianto99 on jan.2018 
+												<span class="satu" style="margin-left: 7%;">
+													<a class="waves-effect waves-light btn" style="background-color: white; border: 1px solid black; color: black;">Edit Task
+													</a>
+													<a class="waves-effect waves-light btn" style="background-color: white; border: 1px solid black; color: black;">Trash
+													</a>
+												</span>
+
+												<!-- Dropdown Trigger -->
+												<a class='dropdown-button btn-flat' href='#' data-activates='dropdown1'><i class="material-icons">more_horiz</i></a>
+
+												<!-- Dropdown Structure -->
+												<ul id='dropdown1' class='dropdown-content'>
+													<li><a href="#drop1" class="modal-trigger">Duplicate</a></li>
+													<li><a href="#drop2" class="modal-trigger">Create Recurring Task</a></li>
+													<li><a href="#drop3" class="modal-trigger">Move / copy to project</a></li>
+													<hr>
+													<li><a href="#drop4" class="modal-trigger">Access Logs</a></li>
+												</ul>
+
+												<!-- Struktur Kiri -->
+
+												<span class="material-icons">check</span><b>Membuat Project Manajemen di Excel</b><br><br>
+												Buat Project Manajemen di excel beserta timeline nya
+												<br>
+												<br>
+												<div class="divider" style="width: 60%"></div>
+												<br>
+												<a href="#" id="SubsTask"> + Add a Substask</a>
+												<br>
+												<span id="IsiTask">
+													<div class="input-field col s6">
+														<input placeholder="Name of the substask" id="first_name" type="text" class="validate">												
+														<select>
+															<option value="" disabled selected>Choose an assignee</option>
+															<option value="1">No assignee</option>
+															<option value="2">hendysantoso911</option>
+															<option value="3">iqbalafrianto99</option>
+															<option value="4">nur.rizki21</option>
+														</select>
+														<a class="waves-effect waves-light btn">Add</a>
+														<br>
+													</div>
+												</span>
+												<br>
+												<br>
+												<div class="divider" style="width: 60%"></div>
+												<br>
+												<b>Discussion</b>
+												<br>
+												<br>
+												<img src="image/sad.png" alt="" class="circle responsive-img" height="50px;" width="50px;"> <!-- notice the "circle" class -->
+												<div class="input-field col s6">
+													<input id="last_name" type="text" class="validate">
+													<label for="last_name">Last Name</label>
+												</div>
+												<br>
+												<br>
+												<div class="divider" style="width: 60%"></div>
+												<br>
+												<a class="waves-effect waves-light btn-flat" style="color:#9e9e9e" id="HideHistory">Hide History of changes</a>
+												<br>
+												<br>
+												<span id="HistoryHilang">
+												Task list changed from Helloooo to Inbox by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">14 hours ago</span><br>
+												<br>
+												Marked as hidden from clients by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">14 hours ago</span>
+												<br>
+												<br>
+												Marked as important by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">14 hours ago</span>
+												<br>
+												<br>
+												Task list changed from Inbox to Helloooo by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">14 hours ago</span>
+												<br>
+												<br>
+												hendysantoso911 is responsible for this task by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">15 hours ago</span>
+												<br>
+												<br>
+												iqbalafrianto99 is no longer responsible for this task by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">15 hours ago</span>
+												<br>
+												<br>
+												Task list changed from Helloooo to Inbox by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">15 hours ago</span>
+												<br>
+												<br>
+												Task list changed from Inbox to Helloooo by 
+												<a href="">hendysantoso911</a> , 
+												<span style="color: grey">15 hours ago</span>
+												<br>
+												<br>
+												Marked as completed by 
+												<a href="">iqbalafrianto99</a> , 
+												<span style="color: grey">2 days ago</span>
+												</span>
+												<!-- Struktur Kanan -->
+												<br>
+												<br>	
+												<fieldset>
+													<div id="Coba">Task List<br>
+														<select>
+															<option value="1" checked>Inbox</option>
+															<option value="2">helooooo</option>
+														</select>
+														<br>
+														<br>
+														Assignee
+														<br>
+														<select>
+															<option value="" disabled selected>No Assignee</option>
+															<option value="1">hendysantoso911</option>
+															<option value="2">iqbalafrianto99</option>
+															<option value="3">nur.rizki21</option>
+														</select>
+														<br>
+														<br>
+														Due On
+														<br>
+														<input type="text" class="datepicker" style="width: 50%;">
+														<br>
+														<br>
+														Labels
+														<br>
+														<select>
+															<option value="" disabled selected>Find or create new label
+															</option>
+															<option value="1">Blocked</option>
+															<option value="2">In Progress</option>
+															<option value="3">Fixed</option>
+															<option value="4">Reopened</option>
+															<option value="5">Verified</option>
+															<option value="6">Fixed</option>
+														</select>
+														<br>
+														<br>
+														<input type="checkbox" id="test1" />
+														<label for="test1">Hidden from clients</label>
+														<br>
+														<input type="checkbox" id="test2" />
+														<label for="test2">High priority</label>
+														<br>
+														<br>
+														Time and Expense tracking 
+														<br>
+														<a class="waves-effect waves-light btn modal-trigger" href="#modalcoba" id="TimeMuncul"> + Add Time 
+														</a>
+														<br>
+														<br>
+														<a class="waves-effect waves-light btn modal-trigger" href="#modalcoba2" id="ExpenseMuncul">+ Expense </a>
+														<br>
+														<br>
+														<fieldset>
+															<br>
+															<b>Subscribers</b>
+															<fieldset>
+																<a href=""> Select All</a>
+																<p>
+																	<input type="checkbox" id="Cbsub1" />
+																	<label for="Cbsub1">hendysantoso911</label>
+																	<p>
+																		<input type="checkbox" id="Cbsub2" />
+																		<label for="Cbsub2">Nur.rizki21</label>
+																	</p>
+																	<p>
+																		<input type="checkbox" id="Cbsub3" />
+																		<label for="Cbsub3">iqbalafrianto99</label>
+																	</p>
+																</p>
+															</fieldset>
+															<br>
+															<a class="waves-effect waves-light btn">Save</a>
+															<a class="waves-effect waves-light btn">Cancel</a>
+														</fieldset>
+														<fieldset>
+															<br>
+															Reminders
+															<a href="#Reminder" class="modal-trigger">Add</a>
+														</fieldset>
+														<!-- Struktur kanan selesai -->
+													</span>
+												</div>
+											</fieldset>
+
+										</p>
+									</div>
+									<div class="modal-footer">
+										<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"> Ok </a>
+									</div>
+								</div>
+							</tr>
+
+							<!-- Reminder 1 -->
+							<div id="Reminder" class="modal">
+								<div class="modal-content">
+									<br>
+									<p><b> Remind people about "Membuat Project Manajemen di Excel"</b></p>
+									<br>
+									<hr>
+									<br>
+									<b> When? </b>
+									<input type="text" class="dateReminder">
+									<br>
+									<fieldset>
+										<b> Who to remind ?</b>
+										<p>
+											<input type="checkbox" id="RemindCb1" />
+											<label for="RemindCb1">iqbalafrianto99</label><br>
+											<input type="checkbox" id="RemindCb2" />
+											<label for="RemindCb2">hendysantoso911</label><br>
+											<input type="checkbox" id="RemindCb3" />
+											<label for="RemindCb3">nur.rizki21</label><br>
+										</p>
+									</fieldset>
+									<p>An email will be sent to the selected people on the selected date.</p>
+									<br>
+									<a class="waves-effect waves-light btn">Save</a>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+								</div>
+							</div>
+
+
+							<!-- Modal Structure 1.1 -->
+							<div id="modalcoba" class="modal">
+								<div class="modal-content">
+									Time : 
+									<input type="text" class="timepicker">
+									Description : 
+									<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+									User : 
+									<a href="">hendysantoso911</a>
+									<br>
+									<br>
+									Job Type : 
+									<a href="">General</a>
+									<br>
+									<br>
+									Date : 
+									<input type="text" class="datepicker2" style="width: 50%;">
+									<input type="checkbox" id="Bl1" />
+									<label for="Bl1">Bilable</label>
+									<br>
+									<a class="waves-effect waves-light btn">Add Time</a>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+								</div>
+							</div>
+
+							<!-- Modal Structure 1.2 -->
+							<div id="modalcoba2" class="modal">
+								<div class="modal-content">
+									Expense : 
+									<input id="icon_telephone" type="number" class="validate">
+									Description : 
+									<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+									User : 
+									<a href="">hendysantoso911</a>
+									<br>
+									<br>
+									Job Type : 
+									<a href="">General</a>
+									<br>
+									<br>
+									Date : 
+									<input type="text" class="datepicker3" style="width: 50%;">
+									<input type="checkbox" id="Bl2" />
+									<label for="Bl2">Bilable</label>
+									<br>
+									<a class="waves-effect waves-light btn">Add Expense</a>
+									<br>	
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+								</div>
+							</div>
+
+							<!-- Dropdown modal -->
+							<div id="drop1" class="modal">
+								<div class="modal-content">
+									<h5>Duplicate Task</h5>
+									<br>
+									<hr>
+									<br>
+									<p>Name of the new task</p>
+									<div class="input-field col s6">
+										<input placeholder="Membuat Project Manajemen Di Excel" id="first_name" type="text" class="validate">
+										<p>The new task will be created with this name. All task properties, including subtasks will be copied to the new task.
+										</p>
+										<hr>
+										<a class="waves-effect waves-light btn">Duplicate</a>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+								</div>
+							</div>
+
+
+							<div id="drop2" class="modal">
+								<div class="modal-content">
+									<h4>Modal Header</h4>
+									<p>A bunch of text</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+								</div>
+							</div>
+
+							<div id="drop3" class="modal">
+								<div class="modal-content">
+									<h4>Modal Header</h4>
+									<p>A bunch of text</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+								</div>
+							</div>
+
+							<div id="drop4" class="modal">
+								<div class="modal-content">
+									<h4>Modal Header</h4>
+									<p>A bunch of text</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+								</div>
+							</div>
+
+							<!-- Modal yang ke -2 -->
+
+							<tr>
+								<td><a href=""> Project Management </a></td>
+								<td><a href="#modal2" class="waves-effect waves-light modal-trigger"> Task 1 </a></td>
+								<td> 5 day ago </td>
+								<!-- Modal Structure -->
+								<div id="modal2" class="modal" style="width: 85%;">
+									<div class="modal-content">
+										<p><a href=""> Project Management </a> Task #1.Created by Iqbalafrianto99 on jan 15.2018 
+											<span class="satu" style="margin-left: 5%;">
+												<a class="waves-effect waves-light btn" style="background-color: white; border: 1px solid black; color: black;">Edit Task
+												</a>
+												<a class="waves-effect waves-light btn" style="background-color: white; border: 1px solid black; color: black;">Trash
+												</a>
+											</span>
+											<!-- Dropdown Trigger -->
+											<a class='dropdown-button btn-flat' href='#' data-activates='dropdown2'><i class="material-icons">more_horiz</i></a>
+
+											<!-- Dropdown Structure -->
+											<ul id='dropdown2' class='dropdown-content'>
+												<li><a href="#!">Duplicate</a></li>
+												<li><a href="#!">Create Recurring Task</a></li>
+												<li><a href="#!">Move / copy to project</a></li>
+												<hr>
+												<li><a href="#!">Access Logs</a></li>
+											</ul>
+											<span class="material-icons">check</span><b> Task 1</b><br><br>
+											Napas
+											<br>
+											<br>
+											<div class="divider" style="width: 60%"></div>
+											<br>
+											<a href="#" id="SubsTask2">+ Add a Substask</a>
+											<br>
+											<span id="IsiTask2">
+												<div class="input-field col s6">
+													<input placeholder="Name of the substask" id="first_name" type="text" class="validate">												
+													<select>
+														<option value="" disabled selected>Choose an assignee</option>
+														<option value="1">No assignee</option>
+														<option value="2">hendysantoso911</option>
+														<option value="3">iqbalafrianto99</option>
+														<option value="4">nur.rizki21</option>
+													</select>
+													<a class="waves-effect waves-light btn">Add</a>
+													<a class="waves-effect waves-light btn">Cancel</a><br>
+													<br>
+												</div>
+											</span>
+											<br>
+											<div class="divider" style="width: 60%"></div>
+											<br>
+											<b>Discussion</b>
+											<br>
+											<br>
+											<div class="input-field col s6">
+												<input placeholder="Placeholder" id="first_name" type="text" class="validate">
+												<label for="first_name">First Name</label>
+											</div>
+											<img src="image/sad.png" alt="" class="circle responsive-img" height="50px;" width="50px;"> <!-- notice the "circle" class -->
+											<br>
+
+											<!-- Show comment -->
+
+											<br>
+											<span>
+												<br>
+												hendysantoso9116 days ago – #1<br>
+												done
+												<br>
+											</span>
+											<br>
+											<div class="divider" style="width: 60%"></div>
+											<br>
+											<a class="waves-effect waves-light btn-flat" style="color:#9e9e9e">Hide History of changes</a>
+											<br>
+											<br>
+											Marked as completed by 
+											<a href="">iqbalafrianto99</a> , 
+											<span style="color: grey">6 hours ago</span><br>
+											<br>
+											<fieldset>
+												<div id="coba2">Task List<br>
+													<select>
+														<option value="1" checked>Inbox</option>
+														<option value="2"> Heloooooo </option>
+													</select>
+													<br>
+													<br>
+													Assignee
+													<br>
+													<select>
+														<option value="" disabled selected>No assignee</option>
+														<option value="1">hendysantoso911</option>
+														<option value="2">iqblafrianto99</option>
+														<option value="3">nur.rizki21</option>
+													</select>
+													<br>
+													<br>
+													Due On
+													<br>
+													<input type="text" class="datepicker" style="width: 50%;">
+													<br>
+													<br>
+													Labels
+													<br>
+													<select>
+														<option value="" disabled selected>Find or create new label
+														</option>
+														<option value="1">Blocked</option>
+														<option value="2">In Progress</option>
+														<option value="3">Fixed</option>
+														<option value="4">Reopened</option>
+														<option value="5">Verified</option>
+														<option value="6">Fixed</option>
+													</select>
+													<br>
+													<br>
+													<input type="checkbox" id="test1_1" />
+													<label for="test1_1">Hidden from clients</label>
+													<br>
+													<input type="checkbox" id="test2_1" />
+													<label for="test2_1">High priority</label>
+													<br>
+													<br>
+													Time and Expense tracking 
+													<br>
+													<a class="waves-effect waves-light btn modal-trigger" href="#modalcoba2.1"> + Add Time </a>
+													<br>
+													<br>
+													<a class="waves-effect waves-light btn modal-trigger" href="#modalcoba2.2"> + Expense 
+													</a>
+													<br>
+													<br>
+													<fieldset>
+														<br>
+														<b>Subscribers</b>
+														<fieldset>
+															<a href=""> Select All</a>
+															<p>
+																<input type="checkbox" id="Cbsub1_1" />
+																<label for="Cbsub1_1">hendysantoso911</label>
+																<p>
+																	<input type="checkbox" id="Cbsub2_1" />
+																	<label for="Cbsub2_1">Nur.rizki21</label>
+																</p>
+																<p>
+																	<input type="checkbox" id="Cbsub3_1" />
+																	<label for="Cbsub3_1">iqbalafrianto99</label>
+																</p>
+															</p>
+														</fieldset>
+														<br>
+														<a class="waves-effect waves-light btn">Save</a>
+														<a class="waves-effect waves-light btn">Cancel</a>
+													</fieldset>
+													<fieldset>
+														<br>
+														Reminders
+														<a href="#Reminder2" class="modal-trigger">Add</a>
+													</fieldset>
+												</div>
+											</fieldset>
+										</p>
+									</div>
+									<div class="modal-footer">
+										<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"> Ok </a>
+									</div>
+								</tr>
+								<tr>
+
+									<!-- Modal Structure 2.1 -->
+									<div id="modalcoba2.1" class="modal">
+										<div class="modal-content">
+											Time : 
+											<input type="text" class="timepicker">
+											Description : 
+											<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+											User : 
+											<a href="">hendysantoso911</a>
+											<br>
+											<br>
+											Job Type : 
+											<a href="">General</a>
+											<br>
+											<br>
+											Date : 
+											<input type="text" class="datepicker2" style="width: 50%;">
+											<input type="checkbox" id="Bl3" />
+											<label for="Bl3">Bilable</label>
+											<br>
+											<a class="waves-effect waves-light btn">Add Time</a>
+											<a class="waves-effect waves-light btn">Cancel</a>
+										</div>
+										<div class="modal-footer">
+											<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+										</div>
+									</div>
+
+									<!-- Modal Structure 2.2 -->
+									<div id="modalcoba2.2" class="modal">
+										<div class="modal-content">
+											Expense : 
+											<input id="icon_telephone" type="number" class="validate">
+											Description : 
+											<textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+											User : 
+											<a href="">hendysantoso911</a>
+											<br>
+											<br>
+											Job Type : 
+											<a href="">General</a>
+											<br>
+											<br>
+											Date : 
+											<input type="text" class="datepicker3" style="width: 50%;">
+											<input type="checkbox" id="Bl4" />
+											<label for="Bl4">Bilable</label>
+											<br>
+											<a class="waves-effect waves-light btn">Add Expense</a>
+											<a class="waves-effect waves-light btn">Cancel</a>
+											<br>	
+										</div>
+
+										<!-- Modal yang ke -3 -->
+
+										<td><a href=""> Project Management </a></td>
+										<td><a href="#modal3" class="waves-effect waves-light modal-trigger"> Diskusi </a></td>
+										<td> 5 day ago </td>
+										<!-- Modal Structure -->
+										<div id="modal3" class="modal" style="width: 85%;">
+											<div class="modal-content">
+												<p><a href=""> Project Management </a> Started by hendysantoso911 on Jan 15. 2018
+													<span class="satu" style="margin-left: 5%;">
+														<a class="waves-effect waves-light btn" style="background-color: white; border: 1px solid black; color: black;">Edit Discus
+														</a>
+														<a class="waves-effect waves-light btn" style="background-color: white; border: 1px solid black; color: black;">Trash
+														</a>
+													</span>
+													<!-- Dropdown Trigger -->
+													<a class='dropdown-button btn-flat' href='#' data-activates='dropdown3'><i class="material-icons">more_horiz</i></a>
+
+													<!-- Dropdown Structure -->
+													<ul id='dropdown3' class='dropdown-content'>
+														<li><a href="#!">Convert to Task</a></li>
+														<li><a href="#!">Move / copy to project</a></li>
+													</ul>
+													<b> Diskusi</b><br><br>
+													project
+													<br>
+													<br>
+													<div class="divider" style="width: 60%"></div>
+													<br>
+													<b>Discussion</b>
+													<br>
+													<br>
+													<div class="input-field col s6">
+														<input placeholder="Placeholder" id="first_name" type="text" class="validate">
+														<label for="first_name">First Name</label>
+													</div>
+													<img src="image/sad.png" alt="" class="circle responsive-img" height="50px;" width="50px;"> <!-- notice the "circle" class -->
+													<br>
+
+													<!-- Show comment -->
+
+													<br>
+													<span>
+														<br>
+														hendysantoso9116 days ago – #4
+														<br>
+														halo<br><br>
+														<br>
+														iqbalafrianto996 days ago – #3
+														<br>
+														halo teman teman<br><br>
+														<br>
+														nur.rizki216 days ago – #2
+														<br>
+														tes<br><br>
+														<br>
+														hendysantoso9116 days ago – #1
+														<br>
+														.<br><br>
+													</span>
+
+													<div class="divider" style="width: 60%"></div>
+													<br>
+													<a class="waves-effect waves-light btn-flat" style="color:#9e9e9e">Hide History of changes</a>
+													<br>
+													<br>
+													No changes have been made.
+													<br>
+													<br>
+
+													<fieldset>
+														<div>
+															<br>
+															<b>Subscribers</b>
+															<fieldset>
+																<a href=""> Select All</a>
+																<p>
+																	<input type="checkbox" id="Cbsub1_3" />
+																	<label for="Cbsub1_3">hendysantoso911</label>
+																	<p>
+																		<input type="checkbox" id="Cbsub2_3" />
+																		<label for="Cbsub2_3">Nur.rizki21</label>
+																	</p>
+																	<p>
+																		<input type="checkbox" id="Cbsub3_3" />
+																		<label for="Cbsub3_3">iqbalafrianto99</label>
+																	</p>
+																</p>
+																<br>
+																<a class="waves-effect waves-light btn">Save</a>
+																<a class="waves-effect waves-light btn">Cancel</a>
+															</fieldset>
+															<p>
+																<input type="checkbox" id="CbClient" />
+																<label for="CbClient">Hidden from clients</label>
+															</p>
+														</span>
+													</div>
+												</fieldset>
+											</p>
+										</div>
+									</div>
+								</tr>
+								<tr>
+									<td></td>
+									<td><a href="MyUpdate.html"> View all my update </a></td>
+								</tr>
+							</table>
+						</fieldset>
+						<p style="color: #4caf50; padding: 10px;"><b> My Task </b>
+							<a class="waves-effect waves-light" style="color: black;" id="ButtonTaskk"><i class="material-icons left">add</i> New Task</a></p>
+							<span id="Taskk">
+								<fieldset>
+									<b> Choose project : </b>
+									<div class="input-field col s12">
+										<select>
+											<option value="" disabled selected>Choose your option</option>
+											<option value="1" id="NewTaskMuncul">Option 1</option>
+										</select>
+									</div>
+								</fieldset>
+								<!-- .................................................................................................. -->
+								<fieldset>
+									<br>
+									<fieldset>
+										<div class="input-field col s6">
+											<input id="last_name" type="text" class="validate">
+											<label for="last_name"> Task Name * </label>
+											<div class="input-field col s12">
+												<textarea id="textarea1" class="materialize-textarea"></textarea>
+												<label for="textarea1">Write description</label>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset>
+										<p> Attachment 
+											<span style="float: right;">
+												<a href=""> upload Files Or</a>
+												<a href=""> Attach from </a>
+											</span>
+										</p>
+									</fieldset>
+									<fieldset>
+										<p> Subscribers <span style="margin-left: 10%">hendysantoso911</span> 
+											<span style="float: right;">
+												<a href=""> Choose </a>
+											</span>
+											<fieldset>
+												<a href="">Select All . </a><a href="">Select none</a>
+												<p>
+													<input type="checkbox" id="Cb1" />
+													<label for="Cb1">Brilyan Trimarta Utama</label>
+												</p>
+												<p>
+													<input type="checkbox" id="Cb2" />
+													<label for="Cb2">hendysantoso911</label>
+												</p>
+												<p>
+													<input type="checkbox" id="Cb3" />
+													<label for="Cb3">nur.rizki21</label>
+												</p>
+												<p>
+													<input type="checkbox" id="Cb4" />
+													<label for="Cb4">iqbalafrianto99</label>
+												</p>
+											</fieldset>
+										</p>
+									</fieldset>
+									<br>
+									<fieldset>
+										<span style="">
+											<p> Tax List
+												<select>
+													<option value="1">Inbox</option>
+													<option value="2">hellooo</option>
+												</select>
+											</p>								
+											<p>Assigne 
+												<select>
+													<option value="" disabled selected>No Assignee</option>
+													<option value="1">hendysantoso911</option>
+													<option value="2">iqbalafrianto99</option>
+													<option value="3">nur.rizki21</option>
+												</select>
+											</p>						
+											<p>Due On <input type="text" class="datepicker" style="width: 50%;"></p>									
+											<p>Labels 
+												<select>
+													<option value="" disabled selected>Find or create new label
+													</option>
+													<option value="1">Blocked</option>
+													<option value="2">In Progress</option>
+													<option value="3">Fixed</option>
+													<option value="4">Reopened</option>
+													<option value="5">Verified</option>
+													<option value="6">Fixed</option>
+												</select>
+											</p>
+											<p>
+												<input type="checkbox" id="test4.6" />
+												<label for="test4.6">Hidden from clients</label>
+											</p>
+											<p>
+												<input type="checkbox" id="test5.6" />
+												<label for="test5.6">High priority</label>
+											</p>
+										</span>
+									</fieldset>
+									<br>
+									<center>
+										<a class="waves-effect waves-light btn">Add</a>
+										<a class="waves-effect waves-light btn" id="ButtonTaskk2">Cancel</a>
+									</center>
+								</fieldset>
+							</span>
+						</p>	
+						<fieldset>
+							<br>
+							<br>
+							<center><img class="responsive-img" src="image/dont.png" height="200px" width="200px"></center>
+							<hr width="50%">
+							<center>
+								<p style="font-size: 13px;">
+									You don't have any tasks right now.<br>
+									Every task that you're assigned to will be listed here.<br>		
+								</p>
+								<a href="https://help.activecollab.com/books/projects/tasks.html" target="_blank" style="font-size: 11px">Learn more about working with tasks.</a>
+							</center>
+						</fieldset>
+						<p style="color: #4caf50; padding: 10px;"><b> My Time </b>
+							<a class="waves-effect waves-light btn white btn-flat" style="color: black" id="ButtonLog"><i class="material-icons left">add</i> Log time</a></p>
+							<span id="Log">
+								<fieldset>
+									<b> Choose project : </b>
+									<div class="input-field col s12">
+										<select>
+											<option value="" disabled selected>Choose your option</option>
+											<option value="1">Option 1</option>
+										</select>
+									</div>
+								</fieldset>
+								<fieldset>
+									<br>
+									<fieldset>
+										<div class="input-field col s6">
+											<p> Enter Time : </p>
+											<input type="text" class="timepicker2">
+											<div class="input-field col s12">
+												<textarea id="textarea1" class="materialize-textarea"></textarea>
+												<label for="textarea1">Write description</label>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset>
+										<span style="">
+											<p> Tax List 
+												<select>
+													<option value="1">Inbox</option>
+													<option value="2">hellooo</option>
+												</select>
+											</p>								
+											<p>Assigne 
+												<select>
+													<option value="" disabled selected>No Assignee</option>
+													<option value="1">hendysantoso911</option>
+													<option value="2">iqbalafrianto99</option>
+													<option value="3">nur.rizki21</option>
+												</select>
+											</p>						
+											<p>Due On <input type="text" class="datepicker2" style="width: 50%;">
+											</p>									
+											<p>Labels 
+												<select>
+													<option value="" disabled selected>Find or create new label
+													</option>
+													<option value="1">Blocked</option>
+													<option value="2">In Progress</option>
+													<option value="3">Fixed</option>
+													<option value="4">Reopened</option>
+													<option value="5">Verified</option>
+													<option value="6">Fixed</option>
+												</select>
+											</p>
+											<p>
+												<input type="checkbox" id="test4.7" />
+												<label for="test4.7">Hidden from clients</label>
+											</p>
+											<p>
+												<input type="checkbox" id="test5.7" />
+												<label for="test5.7">High priority</label>
+											</p>
+										</span>
+									</fieldset>
+									<br>
+									<center>
+										<a class="waves-effect waves-light btn">Add Time Record</a>
+										<a class="waves-effect waves-light btn" id="ButtonLog2">Cancel</a>
+									</center>
+								</fieldset>
+							</span>
+						</p>	
+						<fieldset>
+							<br>
+							<br>
+							<center><img class="responsive-img" src="image/time.png" height="200px" width="200px"></center>
+							<hr width="50%">
+							<center>
+								<p style="font-size: 13px;">
+									You haven't tracked any time yet.<br>
+									All your time records will be logged here.<br>		
+								</p>
+								<a href="https://activecollab.com/help/books/activity/time-expenses" target="_blank" style="font-size: 11px">Learn more about tracking time.</a>
+							</center>
+						</fieldset>
+						<p style="color: #4caf50; padding: 10px;"><b> My Activity </b>
+						<a class="waves-effect waves-light" style="color: black;" id="ButtonActivity"><i class="material-icons left">arrow_drop_down</i></a>
+						</p>	
+						<span id="ActivityHilang">
+						<fieldset>
+							<table>
+								<tr>
+									<td> <p style="font-size: 11px"><a href=""> Project Manager </a></p></td>
+									<td> hendysantoso911 created the Calendar <a href=""> A </a></td>
+									<td> 4 Days Ago </td>
+								</tr>
+								<tr>
+									<td> <p style="font-size: 11px"><a href=""> Project Manager </a></p></td>
+									<td> hendysantoso911 Commented on Task : <a href=""> Task 1 </a></td>
+									<td> 5 Days Ago </td>
+								</tr>
+								<tr>
+									<td> <p style="font-size: 11px"><a href=""> Project Manager </a></p></td>
+									<td> hendysantoso911 Commented on Discussion : <a href=""> Diskusi </a></td>
+									<td> 5 Days Ago </td>
+								</tr>
+								<tr>
+									<td> <p style="font-size: 11px"><a href=""> Project Manager </a></p></td>
+									<td> hendysantoso911 Commented on Discussion :  <a href=""> Diskusi </a></td>
+									<td> 5 Days Ago </td>
+								</tr>
+								<tr>
+									<td> <p style="font-size: 11px"><a href=""> Project Manager </a></p></td>
+									<td> hendysantoso911 started the Discussion <a href=""> Diskusi </a></td>
+									<td> 5 Days Ago </td>
+								</tr>
+								<div class="divider"></div>
+								<tr>
+									<td></td>
+									<td><a href="MyActivity.html">View all my activity.</a></td>
+								</tr>
+							</table>
+							<br>	
+						</fieldset>
+						</span>
+						<br>
+					</fieldset>
+					<br>
+					<br>
+				</div>
+			</div>
+		</main>

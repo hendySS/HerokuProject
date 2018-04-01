@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+		header, main, footer {
+			padding-left: 80px;
+			margin-left: 12%;
+		}
+
+		main{
+			padding-right: 50px;
+		}
+
+		@media only screen and (max-width : 992px) {
+			header, main, footer {
+				padding-left: 0;
+			}
+			@font-face{
+				font-family: "Roboto";
+				src: url(Roboto-Regular.woff) format('woff');
+			}
+			body{
+				font-family:"Roboto",Verdana;
+			}
+		}
+
+		.btn_small{
+			height: 26px!important;
+			line-height: 26px!important;
+			font-size: 0.8rem!important;
+		}
+
+	</style>
+</head>
+<body onload="getId()">
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+
+			$('select').material_select();
+		});
+
+		$(document).ready(function(){
+			$("#filled-in-box").click(function(){
+				$("#ilang").slideToggle();
+			});
+		});
+	</script>
+
+	<ul id="slide-out" class="side-nav fixed white-text" style="background-color:#cfcfcf; padding:8px;">
+		<li>
+			<h5>ActiveCollabV2<i class="material-icons right small">search</i></h5>
+		</li>
+		<li>
+			<div class="divider accent-1"></div>
+		</li>
+		<li>
+			<a href="#!">Projects<i class="material-icons left small">business_center</i></a>
+		</li>
+		<li>
+			<a href="#!">My Work<i class="material-icons left small">computer</i></a>
+		</li>
+		<li>
+			<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+		</li>
+		<li>
+			<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+		</li>
+		<li>
+			<a href="People.html">People<i class="material-icons left small">group</i></a>
+		</li>
+		<li>
+			<a href="#!">Invoices<i class="material-icons left small">local_atm</i></a>
+		</li>
+		<li>
+			<a href="#!">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+		</li>
+		<li><div class="divider accent-1"></div></li>
+		<li>
+			<a href="#!">Reports<i class="material-icons left small">report</i></a>
+		</li>
+		<li>
+			<a href="#!">Trash<i class="material-icons left small">delete</i></a>
+		</li>
+		<li>
+			<a href="#!">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+		</li>
+		<li>
+			<a href="#!">Settings<i class="material-icons left small">settings</i></a>
+		</li>
+		<li><div class="divider accent-1"></div></li>
+
+		<li>
+			<img src="" class="circle left"><a href="#!email"><span class="white-text email" id="iniUser"></span></a>
+		</li>
+	</ul>
+	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+	<header>
+
+	</header>
+	<main>
+		<!--Isi Nya Disini!-->
+			<div class ="row">
+				<div class="col s9 push-s1">
+					<button class="waves-effect waves-light btn white btn_small" style="color: black" id="backPeople"><i class="material-icons left">settings_backup_restore</i> People</button>
+				</div>
+			</div>
+			<fieldset style="background-color: #ebf5ff">
+				<!--<form action="http://localhost:3000/addCompany" method="POST">-->
+					<br>
+					<legend><h6 style="font-family:segoe-ui"><b> New Company </b></h6></legend>
+					<br>
+				</fieldset>
+				<fieldset>
+					<p style="color: #4caf50; padding: 10px;"><b> Name </b></p>	
+					<div class="row">
+						<div class="col s8 push-s2">
+							<p> Company name * 
+								<input id="first_name2" type="text" class="validate" name="name">
+								<label class="active" for="first_name2">Name Company</label>
+							</p>
+						</div>
+					</div>
+					
+				</fieldset>
+				<fieldset>
+					<p style="color: #4caf50; padding: 10px;"><b> Contact Detail </b></p>
+					<div class="row">
+						<div class="col s8 push-s2">
+							<p> Address 
+								<div class="input-field col s12">
+									<textarea id="textarea1" class="materialize-textarea" name="address"></textarea>
+									<label for="textarea1"> Write here </label>
+								</div>
+							</p>
+							<p> Website
+								<div class="input-field col s12" >
+									<div class="input-field" >
+										<input id="last_name" type="text" class="validate" name="website"></input>									<label for="last_name">Website name </label>
+									</div>
+								</div>
+							</p>
+							<p> Phone Number
+								<div class="input-field col s6">
+									<i class="material-icons prefix">phone</i>
+									<input id="icon_telephone" type="number" class="validate" name="phone">
+									<label for="icon_telephone">Telephone</label>
+								</div>						
+							</p>
+						</div>
+					</div>	
+					</fieldset>
+					<fieldset>
+					<p style="color: #4caf50; padding: 10px;"><b> Currency </b></p>
+					<div class="row">
+						<div class="col s8 push-s2">
+							<p> Set Currency </p>
+							<div class="input-field col s12">
+								<select>
+									<!--<option value="" disabled selected>Default (US Dollar)</option> -->
+									<option value="1">Indonesia Rupiah</option>
+									<!--<option value="2">Canadian Dollar</option>
+									<option value="3">Euro</option>-->
+								</select>
+								<label> Select Currency</label>
+							</div>
+							<p style="font-size: 11px">The currency is applied to time records, tracked expenses, and invoices for this company.</p>
+						</div>
+					</div>
+					</fieldset>
+					<fieldset>
+					<p style="color: #4caf50; padding: 10px;"><b> Custom Hourly Rates </b></p>
+					<div class="row">
+						<div class="col s8 push-s1">
+							<p> Enable Custom Hourly Rates 
+								<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+								<label for="filled-in-box"> .. </label>
+							</p>
+							<div id="ilang">
+								<div class="col s8 push-s4">
+								<table class="bordered">
+									<tr>
+										<td> Job type </td>
+										<td></td>
+										<td> IDR / HOUR </td>
+									</tr>
+									<tr>
+										<td> General</td>
+										<td></td>
+										<td>
+											<div class="input-field col s6">
+												<input id="icon_telephone2" type="number" class="validate" name="usd">
+												<label for="icon_telephone2"> Set here </label>
+											</div>		
+										</td>
+									</tr>
+								</table>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</fieldset>
+				<fieldset>
+				<p style="color: #4caf50; padding: 10px;"><b> Note </b></p>
+				<div class="row">
+					<div class="col s8 push-s2">
+						<p> Additional Information </p>
+						<div class="input-field col s12">
+							<textarea id="textarea2" class="materialize-textarea" name="otherInfo"></textarea>
+							<label for="textarea2"> Note </label>
+						</div>
+					</div>
+				</div>
+				<div id="Hilang">
+					<input type="text" name="company_primer" id="destination"></span></input>
+				</div>
+				</fieldset>
+				<fieldset>
+				<br>
+				<center><button class="waves-effect waves-light btn" type="submit" name="action" id="btnCompany">Create Company </button> 
+					<button class="waves-effect waves-light btn" href="People.html" id="btnCancel">Cancel</button></center>
+				<br>
+		</fieldset>
+		<br>
+		<br>
+	</div>
+</main>
+<footer>
+
+</footer>
+<script>
+	 $(document).ready(function(){
+		 $("#Hilang").hide();
+		 var cookie = document.cookie;
+		 var splitCookie = cookie.split(",");
+
+		 $("#iniUser").append(splitCookie[1]);
+
+		
+		 var baseUrl = (window.location).href; // You can also use document.URL
+		 var koopId2 = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		 document.getElementById("destination").value = koopId2;
+
+		 $("#backPeople").click(function(){
+			 window.location = "http://localhost:3000/people?id=" + koopId2;
+		 })
+	 });
+
+	 $(document).ready(function(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		 var koopId3 = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+
+		 $("#btnCancel").click(function(){
+			window.location = "http://localhost:3000/people?id=" + koopId3;
+		 })
+	 })
+	 
+	 function getId(){
+		var baseUrl = (window.location).href; // You can also use document.URL
+		var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+		document.getElementById("destination").value = koopId;
+		///alert(koopId)//503
+		//$('#destination').val(koopId);
+	 }
+
+	 $(document).ready(function(){
+		 $("#btnCompany").click(function(){
+			 var data = {};
+			 data.company_primer = $("#destination").val()
+			 data.name = $("#first_name2").val();
+			 data.address = $("#textarea1").val();
+			 data.website = $("#last_name").val();
+			 data.phone = $("#icon_telephone").val();
+			 data.usd = $("#icon_telephone2").val();
+			 data.otherInfo = $("#textarea2").val();
+
+			if(data.name != "" && data.address != "" && data.phone != ""){
+				//alert("ok");
+				$.ajax({
+					url:"http://localhost:3000/addCompany",
+					type: "POST",
+					data: data,
+					success:function(response){
+					//alert("success");
+						Materialize.toast('Data tersimpan', 2000);
+						var delay = 2000;
+						var url = "http://localhost:3000/people?id=" + data.company_primer;
+						var timeoutID = setTimeout(function() {
+						    window.location = url;
+							}, delay);
+						},
+					error:function(err){
+						alert(err);
+					}
+				});
+			}
+
+			else{
+				alert("Data penting harap diisi dengan benar");
+			}
+		 })
+	 })
+</script>
+</body>
+</html>

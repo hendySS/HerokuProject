@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+		header, main, footer {
+			padding-left: 80px;
+			margin-left: 12%;
+		}
+
+		main{
+			padding-right: 50px;
+		}
+
+		@media only screen and (max-width : 992px) {
+			header, main, footer {
+				padding-left: 0;
+			}
+			@font-face{
+				font-family: "Roboto";
+				src: url(Roboto-Regular.woff) format('woff');
+			}
+			body{
+				font-family:"Roboto",Verdana;
+			}
+		}
+
+		.space{
+			margin-left: 6%;
+		}
+
+		.btn_small{
+			height: 26px!important;
+			line-height: 26px!important;
+			font-size: 0.8rem!important;
+		}
+
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="materialize/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav({menuWidth: 220});
+
+			$('select').material_select();
+		});
+
+		$(document).ready(function(){
+    		// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    		$('.modal').modal({
+    			dismissible: false, // Modal can be dismissed by clicking outside of the modal
+    			opacity: .5, // Opacity of modal background
+      			inDuration: 300, // Transition in duration
+      			outDuration: 200, // Transition out duration
+      			startingTop: '4%', // Starting top style attribute
+      			endingTop: '10%', // Ending top style attribute
+      			ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+        			//alert("Ready");
+        			console.log(modal, trigger);
+      			},
+      			complete: function() {} // Callback for Modal close
+    			}
+  			);
+		});
+
+</script>
+
+<ul id="slide-out" class="side-nav fixed white-text" style="background-color:#cfcfcf; padding:8px;">
+	<li>
+		<h5>ActiveCollabV2<i class="material-icons right small">search</i></h5>
+	</li>
+	<li>
+		<div class="divider accent-1"></div>
+	</li>
+	<li>
+		<a href="#!">Projects<i class="material-icons left small">business_center</i></a>
+	</li>
+	<li>
+		<a href="MyWork.html">My Work<i class="material-icons left small">computer</i></a>
+	</li>
+	<li>
+		<a href="#!">Activity<i class="material-icons left small">hourglass_full</i></a>
+	</li>
+	<li>
+		<a href="#!">Calendar<i class="material-icons left small">today</i></a>
+	</li>
+	<li>
+		<a href="" id="peoplesul">People<i class="material-icons left small">group</i></a>
+	</li>
+	<li>
+		<a href="#!" id="invoices">Invoices<i class="material-icons left small">local_atm</i></a>
+	</li>
+	<li>
+		<a href="#!" id="estimates">Estimates<i class="material-icons left small">filter_tilt_shift</i></a>
+	</li>
+	<li><div class="divider accent-1"></div></li>
+	<li>
+		<a href="#!" id="reports">Reports<i class="material-icons left small">report</i></a>
+	</li>
+	<li>
+		<a href="#!" id="trashs">Trash<i class="material-icons left small">delete</i></a>
+	</li>
+	<li>
+		<a href="#!" id="addons">Add ons<i class="material-icons left small">settings_input_composite</i></a>
+	</li>
+	<li>
+		<a href="#!" id="settings">Settings<i class="material-icons left small">settings</i></a>
+	</li>
+	<li><div class="divider accent-1"></div></li>
+
+	<li>
+		<img src="" class="circle left"><a href="#!email"><span class="white-text email" id="iniUser"></span></a>
+	</li>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+<header>
+
+</header>
+<main>	
+		<div class="row">
+			<div class="col s9 push-1">
+				<button class="waves-effect waves-light btn white btn_small" style="color: black" id="backPeople"><i class="material-icons left">settings_backup_restore</i> People</button>
+			</div>
+		</div>
+		<fieldset style="background-color: #ebf5ff">
+			<!-- Dropdown Trigger --> 
+			<span id="drop1">
+				<a class='dropdown-button btn-flat' href='#' data-activates='dropdown1' style="float: right;"><i class="material-icons">more_horiz</i></a>
+			</span>
+
+			<!-- Dropdown Structure -->
+			<ul id='dropdown1' class='dropdown-content'>
+				<li>
+					<a href="#modal1" class="modal-trigger"><p style="font-size: 12px;"> History </p></a></li>
+				</li>
+			</ul>
+
+			<!-- Modal Structure -->
+			<div id="modal1" class="modal">
+				<div class="modal-content">
+					<br>
+					<span>
+					<h5> History of changes: Brilyan Trimatra Utama </h5>
+					<br>
+					<hr>
+					<hr>
+					<br>
+					<p>No changes have been made.</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+				</div>
+			</div>
+			<!-- End Here -->
+
+			<div id="companyName"><div>
+			<p style="font-size: 12px"> Company info</p>
+			<br>
+		</fieldset>
+		<fieldset>
+			<p style="color: #4caf50; padding: 10px;" id="Howmany"><b></b></p>	
+			<div class="col s12 push-2">
+				<div>
+					<table class="bordered">
+						<ul id="PeopleList">
+
+						</ul>
+					</table>
+				</div>
+			</div>
+			<div id="hilang">
+				<input type="text" id="name">
+				<input type="text" id="email">
+				<input type="text" id="position">
+				<input type="text" id="company_primer">
+				<input type="text" id="archive" value="yes">
+			</div>
+			<br>	
+		</fieldset>
+		<br>
+	</div>
+</main>
+<footer>
+	<!--Puter Kalo Emg Make Puter!-->
+</footer>
+<script>
+
+	$(document).ready(function(){
+		$("#hilang").hide();
+		
+		var cookie = document.cookie;
+		var splitCookie = cookie.split(",");
+
+		$("#iniUser").append(splitCookie[1]);
+	});
+
+	var jumlah = 0;
+	
+	var companyList = $('#Listcompany');
+    var baseUrl = (window.location).href; // You can also use document.URL
+	var koopId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+
+	var cookies = document.cookie;
+	var splitCookies = cookies.split(",");
+	var s = 0;
+	//alert(koopId);
+	$.ajax({
+        url:'http://localhost:3000/companyList/' + koopId,
+        type:'GET',
+        async: false,
+        contentType : 'application/json',
+        success:function(data){
+			var id_Primer = data[0].company_primer;
+			//alert(data[0].company_primer);
+			
+			$.ajax({
+			 	url:'http://localhost:3000/getPeople/' + id_Primer,
+			 	type:'GET',
+			 	async:false,
+			 	success:function(data){
+				 	//alert(JSON.stringify(data));
+				 	$.each(data, function(key, val){
+					 	//alert(data[key].email);
+
+						if(splitCookies[1] == data[key].email){
+							//alert(data[key].position);
+						 	var posisi = data[key].position;
+
+						 	switch(posisi){
+							 	case "owner":
+								 	break;
+
+							 	case "member":
+									$("#invoices").hide();
+									$("#estimates").hide();
+									$("#reports").hide();
+									$("#settings").hide();
+									$(".link").hide();
+									$(".btn_small").hide();
+									$("#peoplelist").hide();
+									$("#drop1").hide();
+									s = s + 1;
+									break;
+
+								case "client":
+									$("#peoplesul").hide(); 
+									$("#invoices").hide();
+									$("#estimates").hide();
+									$("#reports").hide();
+									$("#settings").hide();
+									$("#trashs").hide();
+									$("#addons").hide();
+									break;
+
+								 default:
+									alert("error");
+							}
+						}
+					})
+				},
+				error:function(err){
+
+				}
+			})
+
+			$("#backPeople").click(function(){
+			 	window.location = "http://localhost:3000/people?id=" + id_Primer;
+			});
+		
+			//alert(koopId);
+			var i = 0
+
+              $.each(data, function(key, val){
+				//alert(data[i].name);
+				$('#companyName').prepend("<br><b>" + data[i].name + "<b><span id='editCompany'><a href='editCompany.html?id=" + data[i]._id + "' class='btn-floating waves-effect waves-light red' style='float: right;' title='Edit Company'><i class='material-icons'>edit</i></a></span>");
+
+				if(s == 1){
+					$("#editCompany").hide();
+				}
+				
+
+				if(data[i].people.length == 0){
+					//alert("0");
+				}
+
+				else{
+					var z;
+					var batas = data[i].people.length;
+
+					//alert(batas);
+					for(z=0; z <= batas; z++){
+						
+						var id = data[i].people[z]._id;
+						//alert(id);
+						var people = data[i].people[z].email;
+						var people2 = data[i].people[z].email;
+						var posisi = data[i].people[z].position;
+						var project = data[i].people[z].project;
+						var id_comp = data[i].people[z].company_primer;
+						var space = " ";
+						var cookie = document.cookie;
+						var cookieSplit = cookie.split(",");
+						//alert(cookieSplit[1]);
+
+						//alert(people);
+						//alert(project);
+						var split = people2.split("@");
+						//alert(split[0]);
+						
+						$('#name').val(split[0]);
+						$('#email').val(data[i].people[z].email);
+						$('#position').val(data[i].people[z].position);
+						$('#company_primer').val(data[i].people[z].company_primer);
+			
+						if(data[i].people[z].archive == "no" && people != cookieSplit[1]){
+							
+						$('#PeopleList').append("<i class='material-icons'>history</i><a href='User.html?id=" + data[i].people[z]._id + "'>"+ space + split[0] + "</a><span class='space'>"+ space + people +"</span><span id='dropdownMenu'><a class='dropdown-button btn-flat' style='float:right' href='#' data-activates='" + id  + "'><i class='material-icons'>more_horiz</i></a></span><a style='float:right'>"+ space + posisi +"</a></li><hr><ul id='" + id + "' class='dropdown-content'><li><a class='waves-effect waves-light modal-trigger addProject' href='#addProject"+ id +"' id='"+ id +"'>Add to Projects</a></li><li class='changepermissions'><a class='waves-effect waves-light modal-trigger changePermission' href='#changePermission"+ id +"' id='"+ id +"'>Change Permissions</a></li><li><a class='waves-effect waves-light modal-trigger changeCompany' href='#changeCompany"+ id +"' id='"+ id_comp+ "," + id +"'>Change Company</a></li><li><a class='waves-effect waves-light modal-trigger addTeam' href='#addTeam"+ id +"' id='"+ id +"'>Add to a team</a></li><li class='movetoarchives'><a id='"+ id +"' class='moveArchive'>Move to archive</a></li><hr><li class='movetrashs'><a id='" + id + "," + people + "' class='removePep'>move to trash</a></li></ul><div id='addProject" + id + "' class='modal'><div class='modal-content'><br><p>" + split[0] + "</p><p>Add to Projects</p><hr><p>Choose the projects to be Added : </p></div></div><div id='changePermission" + id + "' class='modal'><div class='modal-content'><br><p>"+ split[0] + "</p><p>Role and permissions</p><hr><p>What can this person do in the system ?</p></div></div><div id='changeCompany" + id + "' class='modal'><div class='modal-content'><br><p>"+ split[0] + "</p><p>Change Company</p><hr><p>Select a company this person belongs to </p></div></div><div id='addTeam" + id + "' class='modal'><div class='modal-content'><br><p>"+ split[0] + "</p><p>Add to a team</p><hr><p> Add this person to a team </p></div></div>");
+						jumlah = jumlah + 1;
+
+							if(s == 1){
+								$("#dropdownMenu").hide();
+							}
+					
+						}
+
+						else{
+							$('#PeopleList').append("<i class='material-icons'>history</i><a href='User.html?id=" + data[i].people[z]._id + "'>"+ space + split[0] + "</a><span class='space'>"+ space + people +"</span><span id='dropdownMenu2'><a class='dropdown-button btn-flat' style='float:right' href='#' data-activates='" + id  + "'><i class='material-icons'>more_horiz</i></a></span><a style='float:right'>"+ space + posisi +"</a></li><hr><ul id='" + id + "' class='dropdown-content'><li><a class='waves-effect waves-light modal-trigger addProject' href='#addProject"+ id +"' id='"+ id +"'>Add to Projects</a></li><li><a class='waves-effect waves-light modal-trigger changeCompany' href='#changeCompany"+ id +"' id='"+ id_comp+ "," + id +"'>Change Company</a></li><li><a class='waves-effect waves-light modal-trigger addTeam' href='#addTeam"+ id +"' id='"+ id +"'>Add to a team</a></li></ul><div id='addProject" + id + "' class='modal'><div class='modal-content'><br><p>" + split[0] + "</p><p>Add to Projects</p><hr><p>Choose the projects to be Added : </p></div></div><div id='changePermission" + id + "' class='modal'><div class='modal-content'><br><p>"+ split[0] + "</p><p>Role and permissions</p><hr><p>What can this person do in the system ?</p></div></div><div id='changeCompany" + id + "' class='modal'><div class='modal-content'><br><p>"+ split[0] + "</p><p>Change Company</p><hr><p>Select a company this person belongs to </p></div></div><div id='addTeam" + id + "' class='modal'><div class='modal-content'><br><p>"+ split[0] + "</p><p>Add to a team</p><hr><p> Add this person to a team </p></div></div>");
+							jumlah = jumlah + 1;
+
+							if(s == 1){
+								$("#dropdownMenu2").hide();
+							}
+						}
+						//alert(owner);
+					};
+				};
+			});
+			i++;
+		},
+		error:function(err){
+			alert(err)
+		}
+	  });
+	  $(document).ready(function(){
+
+		$(".moveArchive").click(function(){
+			value = $(this).attr('id');
+			//var splits = split[0];
+			//alert(value);
+			//alert(split[0]);
+			//alert(splits);
+			//alert(people);
+			//alert(posisi);
+			//alert(id);
+			$.ajax({
+				url:'http://localhost:3000/dataArchive/' + value,
+				type:'PUT',
+				async: true,
+				dataType: 'JSON',
+				data:{
+					"archive":$('#archive').val(),
+				},
+				success:function(data) {
+					alert("success");
+					jumlah = jumlah - 1;
+					window.location.reload();
+				},
+				error:function(err){
+					alert(err);
+				}
+			});
+		 });
+			 
+		  $(".addProject").click(function(){
+			value = $(this).attr('id');
+			//alert(value);
+			  
+			$.ajax({
+				url:'http://localhost:3000/projectPeople/' + value,
+       			type:'GET',
+        		async: false,
+        		contentType : 'application/json',
+        		success:function(data){
+					//alert(JSON.stringify(data));
+					var i = 0;
+					var a = 0;
+					var compri = data[a].company_primer;
+					var projectPeopleId = data[a]._id;
+
+					$.each(data, function(key, val){
+						project_pep = data[key].project;
+						
+						key++
+					});
+
+					$.ajax({
+						url:'http://localhost:3000/getProject/' + compri,
+       					type:'GET',
+        				async: false,
+						contentType : 'application/json',
+						success:function(data){
+							var hasil = 0;
+							//alert(JSON.stringify(data));
+							//alert(project_pep.length);
+							$.each(data, function(key, val){
+								//alert(data[key].name)
+								
+								for(a=0; a < project_pep.length; a++){
+									//alert(project_pep[a]);
+
+									if(data[key].name == project_pep[a]){
+										//alert("ok");
+										hasil = hasil + 1;
+									}
+								}
+
+								if(hasil == 1){
+									hasil = 0;
+								}
+
+								else{
+
+									$("#addProject" + value).append("<div class='modal-content' id='modalProject" + key + "'><input type='checkbox' class='get_value_project' id='" + key + "' name='project[]' value='" + data[key].name + "'/><label for='" + key + "'>" + data[key].name + "</label></div>");
+									
+								}
+								key++;
+							})	
+								$("#addProject" + value).append("<div class='modal-footer'><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnAdd' id='"+ data +"'>Add</a><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnClose'>Cancel</a></div>");
+
+								$(".btnClose").click(function(){
+									//alert("close");
+									//$("#modalProject" + key).empty();
+									window.location.reload();
+								})
+
+								$(".btnAdd").click(function(){
+									//alert("close");
+									//alert(projectPeopleId);
+
+									var bahasa = [];
+           							$('.get_value_project').each(function(){
+               							if($(this).is(":checked"))
+               							{
+					 						bahasa.push($(this).val());
+					 						//alert(bahasa);
+										}
+									
+									});
+									
+									var _bahasa = bahasa;
+									//alert(_bahasa.toString());
+									//alert(_bahasa.length);
+									var project = _bahasa.toString();
+									var _project = project.split(",");
+									
+									for(projectInput=0; projectInput < _bahasa.length; projectInput++){
+										//alert(_project[projectInput]);
+										$.ajax({
+											url:'http://localhost:3000/projectPeople/' + projectPeopleId,
+											type:'POST',
+											data:{
+												project : _project[projectInput]
+											},
+											success: function(data){
+												alert("Success");
+												//alert(JSON.stringify(data.project))
+												window.location.reload();
+											},
+
+											error: function(err){
+												alert(err);
+											}
+										})
+										//window.location.reload();
+									}
+								})						
+						},
+						error:function(err){
+
+						}
+					})			
+					//alert(data_project);
+				},
+				error:function(err){
+
+				}
+			  })
+		  });
+
+		  $(".changePermission").click(function(){
+			value = $(this).attr('id');
+			//alert(value);
+			$.ajax({
+				url:'http://localhost:3000/user/' + value,
+				type:'GET',
+				async:false,
+				contentType:'application/json',
+				success:function(data){
+					//alert(JSON.stringify(data));
+					posisi = data[0].position;
+
+					switch(posisi){
+						case 'owner':
+							//alert("ini owner");
+							$("#changePermission" + value).append("<div class='modal-content'><input class='with-gap' name='position' type='radio' id='OptionsRadios1' value='owner' checked /><label for='OptionsRadios1'> Owner </label><p>This person can do everything you can, including controlling this account. Usually your co-founder. Assign with caution!</p><br><br><input class='with-gap' name='position' type='radio' id='OptionsRadios2' value='member'/><label for='OptionsRadios2'> Member </label><p>Can only see the projects they're assigned to and add new things there.</p><br><br><input class='with-gap' name='position' type='radio' id='OptionsRadios3' value='client'/><label for='OptionsRadios3'> Client </label><p>Clients can't delegate or get assigned to tasks, but they can comment, start discussions, and upload files. You can also hide tasks, discussions, notes or files from them.</p></div><div class='modal-footer'><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnChange' id='"+ value +"'>Save changes</a><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnClose'>Cancel</a></div>");
+							break;
+						case 'member':
+							//alert("ini member");
+							$("#changePermission" + value).append("<div class='modal-content'><input class='with-gap' name='position' type='radio' id='OptionsRadios1' value='owner'/><label for='OptionsRadios1'> Owner </label><p>This person can do everything you can, including controlling this account. Usually your co-founder. Assign with caution!</p><br><br><input class='with-gap' name='position' type='radio' id='OptionsRadios2' value='member' checked /><label for='OptionsRadios2'> Member </label><p>Can only see the projects they're assigned to and add new things there.</p><br><br><input class='with-gap' name='position' type='radio' id='OptionsRadios3' value='client'/><label for='OptionsRadios3'> Client </label><p>Clients can't delegate or get assigned to tasks, but they can comment, start discussions, and upload files. You can also hide tasks, discussions, notes or files from them.</p></div><div class='modal-footer'><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnChange' id='"+ value +"'>Save changes</a><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnClose'>Cancel</a></div>");
+							break;
+						case 'client':
+							//alert("ini cliet");
+							$("#changePermission" + value).append("<div class='modal-content'><input class='with-gap' name='position' type='radio' id='OptionsRadios1' value='owner'/><label for='OptionsRadios1'> Owner </label><p>This person can do everything you can, including controlling this account. Usually your co-founder. Assign with caution!</p><br><br><input class='with-gap' name='position' type='radio' id='OptionsRadios2' value='member'/><label for='OptionsRadios2'> Member </label><p>Can only see the projects they're assigned to and add new things there.</p><br><br><input class='with-gap' name='position' type='radio' id='OptionsRadios3' value='client' checked/><label for='OptionsRadios3'> Client </label><p>Clients can't delegate or get assigned to tasks, but they can comment, start discussions, and upload files. You can also hide tasks, discussions, notes or files from them.</p></div><div class='modal-footer'><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnChange' id='"+ value +"'>Save changes</a><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnClose'>Cancel</a></div>");
+							break;
+						default:
+							alert("error");
+					}
+					
+					$(".btnChange").click(function(){
+						value = $(this).attr('id');
+						var option = $('input[type="radio"]:checked').val();
+						//alert(option);
+						//alert(value);
+						$.ajax({
+							url:'http://localhost:3000/changePermission/' + value,
+							type:'PUT',
+							dataType:'JSON',
+							data:{
+								position: option
+							},
+							success:function(data){
+								alert("success");
+								window.location.reload();
+							},
+							error:function(err){
+								alert(JSON.stringify(err));
+							}
+						})
+					})
+
+					$(".btnClose").click(function(){
+						window.location.reload();
+					})
+				},
+				error:function(err){
+					alert(err);
+				}
+			})
+		  })
+		  
+		  $(".changeCompany").click(function(){
+			value = $(this).attr('id');
+			//alert(value);
+
+			var get = value.split(",");
+
+			$.ajax({
+				url:'http://localhost:3000/getCompanyLain/' + get[0],
+				type:'GET',
+				async:false,
+				contentType:'application/json',
+				success:function(data){
+					
+					$("#changeCompany" + get[1]).append("<div class='modal-content'><select id='companyListUser'><select></div><div class='modal-footer'><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnChange' id='"+ value +"'>Save changes</a><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnClose'>Cancel</a></div>")
+
+					$.each(data, function(key, val){
+						//alert(data[key]._id);
+						$("#companyListUser").append("<option value="+ data[key]._id +">"+ data[key].name +"</option>");
+						
+						$('select').material_select();
+						key++;
+					})
+					
+					$(".btnChange").click(function(){
+						value = $(this).attr('id');
+						var getUser = value.split(",");
+						//alert(getUser[1]);
+						var select = $('#companyListUser').find('option:selected').val();
+						//alert(select);
+						$.ajax({
+							url:'http://localhost:3000/changeCompany/' + getUser[1],
+							type:'PUT',
+							dataType:'JSON',
+							data:{
+								company: select
+							},
+							success:function(data){
+								alert("success");
+								window.location.reload();
+							},
+							error:function(err){
+								alert(JSON.stringify(err));
+							}
+						})
+					})
+
+					$(".btnClose").click(function(){
+						window.location.reload();
+					})
+					
+				},
+				error:function(err){
+					alert(err);
+				}	
+			}) 
+		  })
+
+		  $(".addTeam").click(function(){
+			value = $(this).attr('id');
+			//alert(value);
+			$.ajax({
+				url:'http://localhost:3000/usercompany/' + value,
+				type: 'GET',
+				async:false,
+				contentType: 'application/json',
+				success:function(data){
+					var i = 0;
+					//alert(JSON.stringify(data[i].team));
+					var teamPeopleId = data[i]._id;
+					var teamPeopleEmail = data[i].email;
+					var teamComp = data[i].company_primer;
+					var team = data[i].team;
+					var teamLength = data[i].team.length;
+					//alert(teamPeopleId);
+
+					$.ajax({
+						url:'http://localhost:3000/getTeam/' + teamComp,
+						type: 'GET',
+						async: false,
+						contentType: 'application/json',
+						success:function(data){
+							//alert(JSON.stringify(data));
+							var hasil = 0;
+
+							$.each(data, function(key, val){
+								if(data[key].name != 'default'){
+									//alert(data[key].name);
+									
+									for(a=0; a < teamLength; a++){
+										
+										if(data[key]._id == team[a]){
+											hasil = hasil + 1;
+											//alert(hasil);
+										}
+									}
+
+									if(hasil == 1){
+										hasil = 0;
+									}
+
+									else{
+
+										$("#addTeam" + value).append("<div class='modal-content' id='modalTeam" + key + "'><input type='checkbox' class='get_value_team' id='" + key + "' name='team[]' value='" + data[key]._id + "'/><label for='" + key + "'>" + data[key].name + "</label></div>");
+
+									}
+								}
+
+								else{
+
+								}
+								key++;
+							})
+							
+							$("#addTeam" + value).append("<div class='modal-footer'><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnAdd' id='"+ data +"'>Add</a><a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat btnClose'>Cancel</a></div>");
+
+							$(".btnClose").click(function(){
+								//alert("close");
+								//$("#modalProject" + key).empty();
+								window.location.reload();
+							})
+
+							$(".btnAdd").click(function(){
+								//alert(teamPeopleId);
+								var bahasa = [];
+								$('.get_value_team').each(function(){
+									if($(this).is(":checked"))
+									{
+										bahasa.push($(this).val());
+									}
+								});
+
+								var _bahasa = bahasa;
+								var team = bahasa.toString();
+								var _team = team.split(",");
+								//alert(teamPeopleEmail);
+								for(teamInput=0; teamInput < _bahasa.length; teamInput++){
+									$.ajax({
+										url:'http://localhost:3000/teamPeople/' +teamPeopleId,
+										type:'POST',
+										data:{
+											team: _team[teamInput],
+											name: teamPeopleEmail
+										},
+										success: function(data){
+											alert("success");
+											window.location.reload();
+										},
+
+										error: function(err){
+											alert(err);
+										}
+									})
+								}
+							})
+						},
+						error:function(err){
+
+						}
+					})
+				},
+				error:function(err){
+					alert(err);
+				}
+			})
+		  })
+
+		  $(".removePep").click(function(){
+			value = $(this).attr('id');
+			//alert(value);
+			var split = value.split(",");
+			//alert(split);
+			$.ajax({
+				url:'http://localhost:3000/user/' + split[0],
+				type:'GET',
+				async: false,
+				success:function(data) {
+					//alert(JSON.stringify(data));
+					var i = 0;
+			
+					var _comSekun = data[i].company;
+					var _comPri = data[i].company_primer;
+					var _jumTeam = data[i].team.length;
+					var _team = data[i].team;
+					var _name = split[1];
+					
+					/*var cookies = document.cookie
+					var cookiesSplit = cookies.split(",");*/
+
+					$.ajax({
+						url:'http://localhost:3000/delpep/' + split[0],
+						type:'DELETE',
+						async: false,
+						data:{
+							comsekun: _comSekun,
+							compri: _comPri,
+							jumteam: _jumTeam,
+							team: _team,
+							name: _name
+						},
+						success:function(data) {
+							Materialize.toast('Delete success', 2000);
+							var delay = 2000;
+							var timeoutID = setTimeout(function() {
+							    window.location.reload();
+								}, delay);
+						},
+						error:function(err){
+							alert(err)
+						}
+					});
+				},
+				error:function(err){
+					alert(err);
+				}
+			});
+		 });
+		 $('#Howmany').prepend("<p>" + jumlah + " users <p>");
+	  });
+
+
+</script>
+</body>
+</html>
